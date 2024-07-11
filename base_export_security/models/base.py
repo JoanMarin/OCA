@@ -18,7 +18,7 @@ class Base(models.AbstractModel):
                     fields_to_export,
                 ),
             )
-            self.env['export.event'].log_export(self, field_names)
+            self.env['export.event'].log_export(self, fields_to_export)
             return super(Base, self).export_data(fields_to_export, raw_data)
         else:
             raise AccessError(
