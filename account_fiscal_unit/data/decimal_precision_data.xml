@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="decimal.precision" id="decimal_presicion_fiscal_unit">
+        <field name="name">Fiscal Unit</field>
+        <field name="digits">4</field>
+    </record>
+</odoo>

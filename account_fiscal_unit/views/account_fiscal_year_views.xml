@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_account_fiscal_year_form" model="ir.ui.view">
+        <field name="model">account.fiscal.year</field>
+        <field name="inherit_id" ref="account.action_account_fiscal_year_form"/>
+        <field name="arch" type="xml">
+            <field name="date_to" position="after">
+                <field name="fiscal_unit" required="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_account_fiscal_year_tree" model="ir.ui.view">
+        <field name="model">account.fiscal.year</field>
+        <field name="inherit_id" ref="account.action_account_fiscal_year_tree"/>
+        <field name="arch" type="xml">
+            <field name="date_to" position="after">
+                <field name="fiscal_unit"/>
+            </field>
+        </field>
+    </record>
+</odoo>
