@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_tax_group_form" model="ir.ui.view">
+        <field name="model">account.tax.group</field>
+        <field name="inherit_id" ref="account_group_menu.view_account_tax_group_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sequence']" position="after">
+                <group>
+                    <field name="tax_group_type_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_tax_group_tree" model="ir.ui.view">
+        <field name="model">account.tax.group</field>
+        <field name="inherit_id" ref="account_group_menu.view_account_tax_group_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sequence']" position="after">
+                <field name="tax_group_type_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

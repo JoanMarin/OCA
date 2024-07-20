@@ -3,8 +3,6 @@
 
 {
     "name": "Sale Fiscal Unit",
-    "summary": "This module allows to evaluate a tax at sale order level, "
-    "using parameters such as total base and others.",
     "version": "12.0.1.0.0",
     "category": "Sales",
     "author": "EXA Auto Parts Github@exaap, "
