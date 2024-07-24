@@ -1,8 +1,7 @@
 # Copyright 2024 Joan Marín <Github@JoanMarin>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 
-from odoo import models
-from odoo.tools import float_compare
+from odoo import api, models
 
 
 class AccountInvoiceLine(models.Model):
@@ -42,9 +41,34 @@ class AccountInvoiceLine(models.Model):
 
         return True
 
-    def _set_taxes(self):
+    @api.multi
+    def _compute_tax_id(self):
         for line_id in self:
-            super(AccountInvoiceLine, line_id)._set_taxes()
+            if not line_id.product_id:
+                continue
+
+            company_id = line_id.company_id or self.env.user.company_id
+
+            if line_id.invoice_id.type in ("out_invoice", "out_refund"):
+                taxes = (
+                    line_id.product_id.taxes_id.filtered(
+                        lambda r: r.company_id == company_id
+                    )
+                    or line_id.account_id.tax_ids
+                    or company_id.account_sale_tax_id
+                )
+            else:
+                taxes = (
+                    line_id.product_id.supplier_taxes_id.filtered(
+                        lambda r: r.company_id == company_id
+                    )
+                    or line_id.account_id.tax_ids
+                    or company_id.account_purchase_tax_id
+                )
+
+            line_id.invoice_line_tax_ids = line_id.invoice_id.fiscal_position_id.map_tax(
+                taxes, line_id.product_id, line_id.invoice_id.partner_id
+            )
 
         remove_tax_group_ids = []
         invoice_id = False
@@ -54,32 +78,6 @@ class AccountInvoiceLine(models.Model):
                 invoice_id = line_id.invoice_id
                 remove_tax_group_ids = invoice_id.get_remove_tax_group_ids()
 
-            taxes = line_id.invoice_line_tax_ids
-            line_id.recalculate_taxes(remove_tax_group_ids, taxes)
-            new_taxes = line_id.invoice_line_tax_ids
-
-            if taxes == new_taxes:
-                return
-
-            fix_price = line_id.env["account.tax"]._fix_tax_included_price
-
-            if invoice_id.type in ("in_invoice", "in_refund"):
-                prec = self.env["decimal.precision"].precision_get("Product Price")
-                if (
-                    not line_id.price_unit
-                    or float_compare(
-                        line_id.price_unit,
-                        line_id.product_id.standard_price,
-                        precision_digits=prec,
-                    )
-                    == 0
-                ):
-                    line_id.price_unit = fix_price(
-                        line_id.product_id.standard_price, taxes, new_taxes
-                    )
-                    line_id._set_currency()
-            else:
-                line_id.price_unit = fix_price(
-                    line_id.product_id.lst_price, taxes, new_taxes
-                )
-                line_id._set_currency()
+            line_id.recalculate_taxes(
+                remove_tax_group_ids, line_id.invoice_line_tax_ids
+            )

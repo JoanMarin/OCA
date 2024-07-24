@@ -65,6 +65,6 @@ class AccountInvoice(models.Model):
 
     @api.onchange("invoice_line_ids")
     def _onchange_invoice_line_ids(self):
-        self.invoice_line_ids._set_taxes()
+        self.invoice_line_ids._compute_tax_id()
 
         return super(AccountInvoice, self)._onchange_invoice_line_ids()
