@@ -66,3 +66,12 @@ class PurchaseOrder(models.Model):
     @api.onchange("order_line")
     def _onchange_order_line(self):
         self.order_line._compute_tax_id()
+
+    @api.multi
+    def write(self, vals):
+        rec = super(PurchaseOrder, self).write(vals)
+
+        for order_id in self:
+            order_id.order_line._compute_tax_id()
+
+        return rec

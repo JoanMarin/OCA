@@ -68,3 +68,12 @@ class AccountInvoice(models.Model):
         self.invoice_line_ids._compute_tax_id()
 
         return super(AccountInvoice, self)._onchange_invoice_line_ids()
+
+    @api.multi
+    def write(self, vals):
+        rec = super(AccountInvoice, self).write(vals)
+
+        for invoice_id in self:
+            invoice_id.invoice_line_ids._compute_tax_id()
+
+        return rec
