@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_production_form_view" model="ir.ui.view">
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_assign']" position="before">
+                <button string="Confirmed" name="action_confirm" type="object"
+                    attrs="{'invisible': [('edit_raw_materials', '=', True)]}"/>
+            </xpath>
+
+            <xpath expr="//button[@name='button_mark_done']" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': ['|', ('check_to_done', '=', False), ('availability', '!=', 'assigned')]
+                    }</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_assign']" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': [
+                    '|', ('edit_raw_materials', '=', False), ('availability', 'in', ('assigned', 'none'))
+                    ]
+                    }</attribute>
+            </xpath>
+
+            <xpath expr="//button[6]" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': ['|', '|', '|', '|', ('is_locked', '=', False),
+                    ('check_to_done', '=', True), ('availability', '!=', 'assigned'), ('state', 'not in',
+                    ('confirmed', 'progress')), ('routing_id', '!=', False)]
+                    }</attribute>
+            </xpath>
+
+            <xpath expr="//button[7]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='post_inventory']" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': ['|', ('post_visible', '=', False), ('availability', '!=', 'assigned')]
+                    }</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='product_qty']" position="attributes">
+                <attribute name="attrs">{'readonly': [('has_moves', '=', True), ('edit_raw_materials', '=', True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='product_uom_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('has_moves', '=', True), ('edit_raw_materials', '=', True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='%(mrp.action_change_production_qty)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <field name="availability" position="after">
+                <field name="edit_raw_materials" groups="base.group_no_one"/>
+            </field>
+
+            <field name="move_raw_ids" position="replace">
+                <field name="move_raw_ids"
+                    context="{'final_lots': show_final_lots, 'form_view_ref': 'mrp.view_stock_move_lots', 'default_location_id': location_src_id, 'default_location_dest_id': production_location_id, 'default_state': 'confirmed', 'default_raw_material_production_id': id, 'default_picking_type_id': picking_type_id}"
+                    attrs="{'delete': [('edit_raw_materials', '=', False)], 'create': [('edit_raw_materials', '=', False)], 'readonly': [('edit_raw_materials', '=', True)]}">
+                    <tree editable="bottom" default_order="is_done,sequence" decoration-muted="is_done"
+                        decoration-warning="quantity_done - product_uom_qty &gt; 0.0001"
+                        decoration-success="not is_done and quantity_done - product_uom_qty &lt; 0.0001"
+                        decoration-danger="not is_done and reserved_availability &lt; product_uom_qty and product_uom_qty - reserved_availability &gt; 0.0001">
+                        <field name="product_id" required="1"/>
+                        <field name="price_unit" readonly="1"/>
+                        <field name="name" invisible="1"/>
+                        <field name="unit_factor" invisible="1"/>
+                        <field name="product_uom" groups="uom.group_uom"/>
+                        <field name="has_tracking" invisible="1"/>
+                        <field name="needs_lots" readonly="1" groups="stock.group_production_lot"/>
+                        <field name="is_done" invisible="1"/>
+                        <field name="sequence" invisible="1"/>
+                        <field name="location_id" invisible="1"/>
+                        <field name="location_dest_id" domain="[('id', 'child_of', parent.location_dest_id)]"
+                            invisible="1"/>
+                        <field name="state" invisible="1" force_save="1"/>
+                        <field name="product_uom_qty" string="To Consume"/>
+                        <field name="reserved_availability"
+                            attrs="{'invisible': [('is_done', '=', True)], 'column_invisible': [('parent.state', '=', 'done')]}"
+                            string="Reserved"/>
+                        <field name="quantity_done" string="Consumed" readonly="1"/>
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>
