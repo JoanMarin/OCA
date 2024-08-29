@@ -1,21 +1,20 @@
 # Copyright 2024 Joan Marín <Github@JoanMarin>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 
 {
-    "name": "Manufacturing Stock Account",
+    "name": "Sale Stock Cancel",
     "version": "12.0.1.0.0",
-    "category": "Manufacturing",
+    "category": "Sale",
     "author": "EXA Auto Parts Github@exaap, "
     "Joan Marín Github@JoanMarin, "
     "Odoo Community Association (OCA)",
     "maintainers": ["joanmarin"],
-    "website": "https://github.com/OCA/manufacture",
+    "website": "https://github.com/OCA/sale-workflow",
     "depends": [
-        "mrp",
-        "stock_account",
+        "sale_stock",
     ],
     "data": [
-        "views/mrp_production_views.xml",
+        "views/sale_order_views.xml",
     ],
     "installable": True,
     "license": "AGPL-3",

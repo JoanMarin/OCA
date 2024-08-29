@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_stock_cancel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-29 15:48+0000\n"
+"PO-Revision-Date: 2024-08-29 15:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_stock_cancel
+#: selection:sale.order,state:0
+msgid "Annulled"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: selection:sale.order,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: model:ir.model.fields,field_description:sale_stock_cancel.field_sale_order__is_anulled
+msgid "Is Anulled?"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: selection:sale.order,state:0
+msgid "Locked"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: selection:sale.order,state:0
+msgid "Quotation"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: selection:sale.order,state:0
+msgid "Quotation Sent"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: model:ir.model,name:sale_stock_cancel.model_sale_order
+msgid "Sale Order"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: selection:sale.order,state:0
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: model:ir.model.fields,field_description:sale_stock_cancel.field_sale_order__state
+msgid "Status"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: model:ir.model,name:sale_stock_cancel.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: sale_stock_cancel
+#: code:addons/sale_stock_cancel/models/stock_picking.py:19
+#, python-format
+msgid "You cannot cancel a sale order that has a stock move that has been set to 'Done' and does not have its respective return."
+msgstr ""
+
