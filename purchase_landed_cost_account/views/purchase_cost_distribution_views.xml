@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="purchase_cost_distribution_form" model="ir.ui.view">
+        <field name="model">purchase.cost.distribution</field>
+        <field name="inherit_id" ref="purchase_landed_cost.purchase_cost_distribution_form"/>
+        <field name="arch" type="xml">
+            <button name="action_cancel" position="attributes">
+                <attribute name="states">done,accounted</attribute>
+            </button>
+
+            <button name="action_draft" position="attributes">
+                <attribute name="states">calculated,error,cancel</attribute>
+            </button>
+
+            <button name="action_cancel" position="after">
+                <button name="action_overwrite_move_lines" states="done" string="Overwrite Journal Items"
+                    type="object"/>
+            </button>
+
+            <xpath expr="//sheet/div[1]" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" name="action_open_account_move_line" icon="fa-credit-card"
+                        type="object" string="Journal Items"/>
+                </div>
+            </xpath>
+
+            <xpath expr="//field[@name='expense_lines']/tree//field[@name='type']" position="before">
+                <field name="state" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='expense_lines']/tree//field[@name='type']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'in', ['done', 'accounted'])]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='expense_lines']/tree//field[@name='calculation_method']"
+                position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'in', ['done', 'accounted'])]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='expense_lines']/tree//field[@name='ref']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'in', ['done', 'accounted'])]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='expense_lines']/tree//field[@name='expense_amount']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'in', ['done', 'accounted'])]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='expense_lines']/tree//field[@name='affected_lines']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'in', ['done', 'accounted'])]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
