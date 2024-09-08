@@ -3,26 +3,31 @@
 # 	* fleet
 # 
 # Translators:
-# Onii Onii <onii0223@yahoo.com>, 2020
-# Munkhbaatar g <muuguu17@gmail.com>, 2020
-# Martin Trigaux, 2020
-# Otgonbayar.A <gobi.mn@gmail.com>, 2020
-# Batmunkh Ganbat <batmunkh.g@bumanit.mn>, 2020
-# tserendavaa tsogtoo <tseegii011929@gmail.com>, 2020
-# Батболд <batbold.ts@gmail.com>, 2020
-# zolzaya <zolzaya.erdenebaatar@gmail.com>, 2021
+# Otgonbayar.A <gobi.mn@gmail.com>, 2021
+# Батболд <batbold.ts@gmail.com>, 2021
+# tumenjargal hadbaatar <tumenjargal7903@gmail.com>, 2021
 # hish, 2021
-# Baskhuu Lodoikhuu <baskhuujacara@gmail.com>, 2021
+# Батмөнх Ганбат <batmunkh2522@gmail.com>, 2021
+# Onii Onii <onii0223@yahoo.com>, 2021
+# tserendavaa tsogtoo <tseegii011929@gmail.com>, 2021
+# 486aab72cd7cb5d98a82d40b0db4c5f2_4397374 <25b041e3e1ecd3f217ca34118196bd3e_836923>, 2021
+# Munkhbaatar g <muuguu17@gmail.com>, 2021
 # Munkhbilguun Altankhuyag <munkhbilguunaltankhuyag@gmail.com>, 2021
-# Bayarkhuu Bataa, 2021
+# zolzaya <zolzaya.erdenebaatar@gmail.com>, 2021
+# Martin Trigaux, 2021
+# Batmunkh Ganbat <batmunkh.g@bumanit.mn>, 2021
+# baaska sh <sh.baaskash@gmail.com>, 2021
+# Baskhuu Lodoikhuu <baskhuujacara@gmail.com>, 2022
+# Torbat Jargalsaikhan, 2023
+# Bayarkhuu Bataa, 2024
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server saas~14.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-29 13:45+0000\n"
-"PO-Revision-Date: 2020-09-07 08:12+0000\n"
-"Last-Translator: Bayarkhuu Bataa, 2021\n"
+"POT-Creation-Date: 2021-09-14 10:28+0000\n"
+"PO-Revision-Date: 2021-09-14 12:22+0000\n"
+"Last-Translator: Bayarkhuu Bataa, 2024\n"
 "Language-Team: Mongolian (https://app.transifex.com/odoo/teams/41243/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,10 +52,17 @@ msgstr ""
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
+msgid "<span>cm</span>"
+msgstr ""
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_form
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
 msgid "<span>g/km</span>"
 msgstr "<span>г/км</span>"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_form
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
 msgid "<span>kW</span>"
 msgstr "<span>кВ</span>"
@@ -58,27 +70,27 @@ msgstr "<span>кВ</span>"
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_1
 msgid "A/C Compressor Replacement"
-msgstr "Агаар шүүгч компрессор солилт"
+msgstr "Агаар Шүүгч Компрессор Солилт"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_2
 msgid "A/C Condenser Replacement"
-msgstr "А/Ш-ийн конденсатор солилт"
+msgstr "А/Ш-ийн Конденсатор Солилт"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_3
 msgid "A/C Diagnosis"
-msgstr "A/C оношилгоо"
+msgstr "A/C Оншлогоо"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_4
 msgid "A/C Evaporator Replacement"
-msgstr "A/C ууршуулагч солих"
+msgstr "A/C Evaporator солих"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_5
 msgid "A/C Recharge"
-msgstr "Аir Condition цэнэглэх"
+msgstr "Аir Condition Цэнэглэх"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__message_needaction
@@ -98,7 +110,7 @@ msgstr "Идэвхжүүлэлтийн зардал"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__active
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__active
 msgid "Active"
-msgstr "Идэвхтэй"
+msgstr "Идэвхитэй"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__activity_ids
@@ -140,6 +152,11 @@ msgid "Add a new tag"
 msgstr "Шинэ пайз нэмэх"
 
 #. module: fleet
+#: model:ir.model.fields,help:fleet.field_fleet_vehicle__description
+msgid "Add a note about this vehicle"
+msgstr ""
+
+#. module: fleet
 #: model:res.groups,name:fleet.fleet_group_manager
 msgid "Administrator"
 msgstr "Администратор"
@@ -147,7 +164,7 @@ msgstr "Администратор"
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_6
 msgid "Air Filter Replacement"
-msgstr "Агаар шүүгч солилт"
+msgstr "Агаар Шүүгч Солилт"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
@@ -157,27 +174,19 @@ msgstr "Бүх тээврийн хэрэгсэл"
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_7
 msgid "Alternator Replacement"
-msgstr "Хувьсах гүйдлийн генератор солилт"
-
-#. module: fleet
-#: model_terms:ir.ui.view,arch_db:fleet.res_config_settings_view_form
-msgid "Analyse vehicle costs with analytic accounting"
-msgstr ""
-
-#. module: fleet
-#: model_terms:ir.ui.view,arch_db:fleet.res_config_settings_view_form
-msgid "Analytic Accounting"
-msgstr "Шинжилгээний санхүү"
-
-#. module: fleet
-#: model:ir.model.fields,field_description:fleet.field_res_config_settings__module_fleet_account
-msgid "Analytic Accounting Fleet"
-msgstr ""
+msgstr "Астаачер сольсон"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
-msgid "Apply Change"
+msgid "Apply New Driver"
 msgstr ""
+
+#. module: fleet
+#. openerp-web
+#: code:addons/fleet/static/src/js/fleet_form.js:0
+#, python-format
+msgid "Archive"
+msgstr "Архив"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form
@@ -219,13 +228,14 @@ msgstr "Анхаар: шинэчлэх хугацаа хэтэрсэн"
 
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__transmission__automatic
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__transmission__automatic
 msgid "Automatic"
 msgstr "Автомат"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Available"
-msgstr "Боломжтой"
+msgstr "Идэвхтэй"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_8
@@ -235,32 +245,38 @@ msgstr "Өндгөн тулгуур солих"
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_9
 msgid "Battery Inspection"
-msgstr "Баттерей үзлэг"
+msgstr "Баттерей Үзлэг"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_10
 msgid "Battery Replacement"
-msgstr "Баттерей солилт"
+msgstr "Баттерей Солилт"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_cost_report__vehicle_type__bike
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__vehicle_type__bike
 msgid "Bike"
 msgstr ""
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
+msgid "Bikes"
+msgstr ""
+
+#. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_11
 msgid "Brake Caliper Replacement"
-msgstr "Тормозны туслах солилт"
+msgstr "Эвдэрсэн калипер солих"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_12
 msgid "Brake Inspection"
-msgstr "Тормоз үзлэг"
+msgstr "Тормоз Үзлэг"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_13
 msgid "Brake Pad(s) Replacement"
-msgstr "Тормозны наклад солилт"
+msgstr "Тормосны Наклад Солих"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__brand_id
@@ -276,16 +292,28 @@ msgstr "Тээврийн хэрэгслийн брэнд"
 #. module: fleet
 #: model:fleet.vehicle.tag,name:fleet.vehicle_tag_break
 msgid "Break"
-msgstr "Эвдрэл"
+msgstr "Завсарлага"
+
+#. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__cng
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__cng
+msgid "CNG"
+msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__co2
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__default_co2
 msgid "CO2 Emissions"
 msgstr "\"CO2\" утаа хаялт"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_tree
 msgid "CO2 Emissions g/km"
+msgstr ""
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__co2_standard
+msgid "CO2 Standard"
 msgstr ""
 
 #. module: fleet
@@ -309,6 +337,7 @@ msgid "Cancelled"
 msgstr "Цуцлагдсан"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_cost_report__vehicle_type__car
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__vehicle_type__car
 msgid "Car"
 msgstr ""
@@ -317,6 +346,11 @@ msgstr ""
 #: model:fleet.service.type,name:fleet.type_service_14
 msgid "Car Wash"
 msgstr "Машин угаалга"
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
+msgid "Cars"
+msgstr "Машинууд"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__car_value
@@ -330,8 +364,19 @@ msgstr "Каталтиз хөрвүүлэгч солих"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_service_type__category
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__category_id
 msgid "Category"
 msgstr "Ангилал"
+
+#. module: fleet
+#: model:ir.model.constraint,message:fleet.constraint_fleet_vehicle_model_category_name_uniq
+msgid "Category name must be unique"
+msgstr ""
+
+#. module: fleet
+#: model:ir.model,name:fleet.model_fleet_vehicle_model_category
+msgid "Category of the model"
+msgstr ""
 
 #. module: fleet
 #: model:mail.message.subtype,description:fleet.mt_fleet_driver_updated
@@ -368,12 +413,19 @@ msgid "Close Contract"
 msgstr "Гэрээ хаах"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__contract_state__closed
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_log_contract__state__closed
 msgid "Closed"
 msgstr "Хаагдсан"
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__co2_standard
+msgid "Co2 Standard"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__color
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__color
 msgid "Color"
 msgstr "Өнгө"
 
@@ -414,6 +466,11 @@ msgstr "Тохиргоо"
 #: model:ir.model,name:fleet.model_res_partner
 msgid "Contact"
 msgstr "Харилцах хаяг"
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_search
+msgid "Contains Vehicles"
+msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_service_type__category__contract
@@ -510,6 +567,21 @@ msgid "Costs Analysis"
 msgstr "Өртөгийн шинжилгээ"
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__country_id
+msgid "Country"
+msgstr "Улс"
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__country_code
+msgid "Country Code"
+msgstr "Улсын код"
+
+#. module: fleet
+#: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_model_category_action
+msgid "Create a new category"
+msgstr "Шинэ категори үүсгэх"
+
+#. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
 msgid "Create a new contract"
 msgstr "Шинэ гэрээ бүртгэх"
@@ -552,6 +624,7 @@ msgstr "Тээврийн хэрэгслийн төлөв бүртгэх"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__create_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__create_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__create_uid
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__create_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__create_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__create_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_tag__create_uid
@@ -566,6 +639,7 @@ msgstr "Үүсгэсэн этгээд"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__create_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__create_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__create_date
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__create_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__create_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__create_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_tag__create_date
@@ -580,7 +654,6 @@ msgid "Currency"
 msgstr "Валют"
 
 #. module: fleet
-#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__purchaser_id
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Current Driver"
 msgstr "Жолооч"
@@ -640,12 +713,17 @@ msgstr "Элэгдэл болон Хүү"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__description
-#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
 msgid "Description"
 msgstr "Тайлбар"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__frame_type__diamant
+msgid "Diamant"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__diesel
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__diesel
 msgid "Diesel"
 msgstr "Дизель"
 
@@ -658,11 +736,10 @@ msgstr "Дизель"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__display_name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__display_name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__display_name
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__display_name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__display_name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__display_name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_tag__display_name
-#: model:ir.model.fields,field_description:fleet.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:fleet.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Дэлгэрэнгүй нэр"
 
@@ -678,6 +755,7 @@ msgstr "Хаалганы Цонхны Мотор/Удирдлага Солилт
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__doors
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__doors
 msgid "Doors Number"
 msgstr "Хаалганы Тоо"
 
@@ -690,6 +768,7 @@ msgstr "Бууруулсан"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__driver_id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_assignation_log__driver_id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_cost_report__driver_id
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__purchaser_id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__purchaser_id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__driver_id
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_costs_report_view_search
@@ -702,8 +781,8 @@ msgstr "Жолооч"
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__driver_id
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_contract__purchaser_id
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_odometer__driver_id
-msgid "Driver of the vehicle"
-msgstr "Жолооч"
+msgid "Driver address of the vehicle"
+msgstr ""
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
@@ -726,6 +805,20 @@ msgid "Drivers history on a vehicle"
 msgstr "Тээврийн хэрэгсэл дээрх жолоочийн түүх"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_brand_view_kanban
+msgid "Dropdown menu"
+msgstr "Эвхэгддэг цэс"
+
+#. module: fleet
+#. openerp-web
+#: code:addons/fleet/static/src/js/fleet_form.js:0
+#, python-format
+msgid ""
+"Each Services and contracts of this vehicle will be considered as Archived. "
+"Are you sure that you want to archive this record?"
+msgstr ""
+
+#. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
 msgid ""
 "Each contract (e.g.: leasing) may include several services\n"
@@ -743,13 +836,20 @@ msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__electric
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__electric
 msgid "Electric"
 msgstr "Цахилгаан"
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__electric_assistance
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__electric_assistance
+msgid "Electric Assistance"
+msgstr ""
+
+#. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_17
 msgid "Emissions"
-msgstr "Утаа хаялт"
+msgstr "Утаа Хаялт"
 
 #. module: fleet
 #: model:fleet.vehicle.tag,name:fleet.vehicle_tag_leasing
@@ -757,7 +857,7 @@ msgid "Employee Car"
 msgstr "Ажилтны машин"
 
 #. module: fleet
-#: code:addons/fleet/models/fleet_vehicle_cost.py:0
+#: code:addons/fleet/models/fleet_vehicle_log_services.py:0
 #, python-format
 msgid "Emptying the odometer value of a vehicle is not allowed."
 msgstr "Туулсан замын утгыг хоослох боломжгүй."
@@ -768,6 +868,7 @@ msgid "End Date"
 msgstr "Дуусах огноо"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_form
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
 msgid "Engine"
 msgstr ""
@@ -775,17 +876,17 @@ msgstr ""
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_18
 msgid "Engine Belt Inspection"
-msgstr "Духны ремень үзлэг"
+msgstr "Духны Ремень Үзлэг"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_19
 msgid "Engine Coolant Replacement"
-msgstr "Тосол солилт"
+msgstr "Тосол Солих"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_20
 msgid "Engine/Drive Belt(s) Replacement"
-msgstr "Хөдөлгүүр/Духны ремень солилт"
+msgstr "Хөдөлгүүр/Духны Ремень солилт"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_13
@@ -798,6 +899,7 @@ msgid "Exhaust Manifold Replacement"
 msgstr "Хөдөлгүүрийн Яндан Солилт"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__contract_state__expired
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_log_contract__state__expired
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_search
 msgid "Expired"
@@ -809,7 +911,14 @@ msgid "First Contract Date"
 msgstr "Анхны гэрээний огноо"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
+msgid "Fiscality"
+msgstr ""
+
+#. module: fleet
 #: model:ir.module.category,name:fleet.module_fleet_category
+#: model:ir.ui.menu,name:fleet.fleet_vehicle_menu
+#: model:ir.ui.menu,name:fleet.fleet_vehicles
 #: model:ir.ui.menu,name:fleet.menu_root
 #: model_terms:ir.ui.view,arch_db:fleet.res_config_settings_view_form
 msgid "Fleet"
@@ -823,6 +932,7 @@ msgstr ""
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_costs_report_view_graph
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_costs_report_view_search
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vechicle_costs_report_view_tree
 msgid "Fleet Costs Analysis"
 msgstr ""
 
@@ -832,7 +942,7 @@ msgid "Fleet Management"
 msgstr "Машин Зогсоолын Менежмент"
 
 #. module: fleet
-#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__manager_id
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__manager_id
 msgid "Fleet Manager"
 msgstr ""
 
@@ -856,13 +966,6 @@ msgid "Followers"
 msgstr "Дагагчид"
 
 #. module: fleet
-#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__message_channel_ids
-#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__message_channel_ids
-#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Дагагчид (Сувагууд)"
-
-#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__message_partner_ids
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__message_partner_ids
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__message_partner_ids
@@ -874,7 +977,22 @@ msgstr "Дагагчид (Харилцагчид)"
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_contract__activity_type_icon
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_services__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr "Font awesome icon e.g. fa-tasks"
+msgstr "Font awesome icon ж.ш. fa-tasks"
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__frame_size
+msgid "Frame Size"
+msgstr ""
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__frame_type
+msgid "Frame Type"
+msgstr ""
+
+#. module: fleet
+#: model:ir.model.fields,help:fleet.field_fleet_vehicle__frame_type
+msgid "Frame type of the bike"
+msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_contract__cost_frequency
@@ -898,6 +1016,8 @@ msgstr "Түлшний помп солих"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__fuel_type
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__default_fuel_type
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Fuel Type"
 msgstr "Түлшны Төрөл"
 
@@ -924,6 +1044,7 @@ msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__gasoline
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__gasoline
 msgid "Gasoline"
 msgstr "Газ"
 
@@ -945,6 +1066,13 @@ msgstr "Хугацаа хэтэрсэн Гэрээтэй эсэх"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__contract_renewal_due_soon
 msgid "Has Contracts to renew"
 msgstr "Шинэчлэх гэрээ байна уу"
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__has_message
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__has_message
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__has_message
+msgid "Has Message"
+msgstr "Мессежтэй"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_24
@@ -973,18 +1101,33 @@ msgstr "Халаагуурийн Хоолой Солилт"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__horsepower
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__horsepower
 msgid "Horsepower"
 msgstr "Морьны хүч"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__horsepower_tax
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__horsepower_tax
 msgid "Horsepower Taxation"
 msgstr "Цилиндрийн багтаамжинд оногдох татвар"
 
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__hybrid
-msgid "Hybrid"
-msgstr "Хайбрид"
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__hybrid
+msgid "Hybrid Diesel"
+msgstr ""
+
+#. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__full_hybrid_gasoline
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__full_hybrid_gasoline
+msgid "Hybrid Gasoline"
+msgstr ""
+
+#. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__hydrogen
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__hydrogen
+msgid "Hydrogen"
+msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_service_type__id
@@ -995,11 +1138,10 @@ msgstr "Хайбрид"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__id
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_tag__id
-#: model:ir.model.fields,field_description:fleet.field_res_config_settings__id
-#: model:ir.model.fields,field_description:fleet.field_res_partner__id
 msgid "ID"
 msgstr "ID"
 
@@ -1045,6 +1187,7 @@ msgid "Immatriculation Date"
 msgstr "Бүртгэлийн огноо"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__contract_state__open
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_log_contract__state__open
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_search
 msgid "In Progress"
@@ -1057,9 +1200,15 @@ msgid "Included Services"
 msgstr "Агуулагдсан үйлчилгээ"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__contract_state__futur
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_log_contract__state__futur
 msgid "Incoming"
 msgstr "Ирж буй"
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_form
+msgid "Information"
+msgstr "Мэдээлэл"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_30
@@ -1090,8 +1239,14 @@ msgstr "Км"
 
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__lpg
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__lpg
 msgid "LPG"
 msgstr "LPG"
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__contract_state
+msgid "Last Contract State"
+msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_service_type____last_update
@@ -1102,11 +1257,10 @@ msgstr "LPG"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services____last_update
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model____last_update
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand____last_update
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category____last_update
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer____last_update
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state____last_update
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_tag____last_update
-#: model:ir.model.fields,field_description:fleet.field_res_config_settings____last_update
-#: model:ir.model.fields,field_description:fleet.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Сүүлд зассан огноо"
 
@@ -1123,6 +1277,7 @@ msgstr "Гүйлт хэмжигчийн сүүлийн заалт"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__write_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__write_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__write_uid
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__write_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__write_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__write_uid
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_tag__write_uid
@@ -1137,6 +1292,7 @@ msgstr "Сүүлд зассан этгээд"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__write_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__write_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__write_date
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__write_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__write_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__write_date
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_tag__write_date
@@ -1161,6 +1317,7 @@ msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__license_plate
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "License Plate"
 msgstr "Улсын Дугаар"
 
@@ -1200,7 +1357,6 @@ msgstr "Үндсэн хавсралт"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__name
-#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_search
 msgid "Make"
 msgstr "Үйлдвэр"
 
@@ -1216,17 +1372,18 @@ msgstr ""
 "болно."
 
 #. module: fleet
+#: model_terms:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
+msgid "Manage efficiently your different effective vehicles Costs with Odoo."
+msgstr ""
+
+#. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_11
 msgid "Management Fee"
 msgstr "Менежментийн хураамж"
 
 #. module: fleet
-#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__manager_id
-msgid "Manager"
-msgstr "Удирдлага"
-
-#. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__transmission__manual
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__transmission__manual
 msgid "Manual"
 msgstr "Гараар"
 
@@ -1271,6 +1428,14 @@ msgid "Model"
 msgstr "Модел"
 
 #. module: fleet
+#: model:ir.actions.act_window,name:fleet.fleet_vehicle_model_category_action
+#: model:ir.ui.menu,name:fleet.fleet_vehicle_model_category_menu
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_category_view_form
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_category_view_tree
+msgid "Model Category"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__model_count
 msgid "Model Count"
 msgstr ""
@@ -1283,6 +1448,7 @@ msgstr "Моделийн Үйлдвэр"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__model_year
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__model_year
 msgid "Model Year"
 msgstr "Загвар Жил"
 
@@ -1302,6 +1468,7 @@ msgid "Model of the vehicle"
 msgstr "Тээврийн хэрэгслийн Модель"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_brand_view_form
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_kanban
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_tree
 msgid "Models"
@@ -1313,9 +1480,17 @@ msgid "Monthly"
 msgstr "Сар бүр"
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__my_activity_date_deadline
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__my_activity_date_deadline
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Миний ажилбарын эцсийн огноо"
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_service_type__name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__name
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__name
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__name
 msgid "Name"
@@ -1332,9 +1507,21 @@ msgid "Need Action"
 msgstr "Үйлдэл шаардлагатай"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_log_services__state__new
+msgid "New"
+msgstr "Шинэ"
+
+#. module: fleet
 #: model:fleet.vehicle.state,name:fleet.fleet_vehicle_state_new_request
 msgid "New Request"
 msgstr "Шинэ хүсэлт"
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__activity_calendar_event_id
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__activity_calendar_event_id
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Календар дээрх дараагийн Үйл ажиллагаа"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__activity_date_deadline
@@ -1359,7 +1546,7 @@ msgstr "Дараагийн ажилбарын төрөл"
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__future_driver_id
-msgid "Next Driver of the vehicle"
+msgid "Next Driver Address of the vehicle"
 msgstr ""
 
 #. module: fleet
@@ -1383,6 +1570,11 @@ msgstr "Шинжилгээнд өгөх мэдээлэл байхгүй байн
 #, python-format
 msgid "No plate"
 msgstr ""
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
+msgid "Note"
+msgstr "Тэмдэглэл"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__notes
@@ -1446,7 +1638,7 @@ msgstr "Гүйлт"
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_odometer_view_form
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_odometer_view_tree
 msgid "Odometer Logs"
-msgstr "Гүйлтийн түүх"
+msgstr "Гүйлтийн Түүх"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__odometer_unit
@@ -1457,7 +1649,7 @@ msgstr "Гүйлтийн нэгж"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__odometer
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_odometer__value
 msgid "Odometer Value"
-msgstr "Гүйлтийн утга"
+msgstr "Гүйлтийн Утга"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_odometer_view_graph
@@ -1483,15 +1675,6 @@ msgid "Odometers"
 msgstr "Гүйлт"
 
 #. module: fleet
-#: model_terms:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
-msgid ""
-"Odoo helps you managing the costs for your different vehicles\n"
-"          Costs are generally created from services and contract and appears here."
-msgstr ""
-"Odoo нь тээврийн хэрэгслүүдийн зардлыг удирдахад туслана. \n"
-"Зардлууд нь засвар үйлчилгээ болон гэрээнээс үүсч энд харагдана."
-
-#. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_31
 msgid "Oil Change"
 msgstr "Тос Солих"
@@ -1505,11 +1688,6 @@ msgstr "Тосны Насос Солилт"
 #: model:fleet.service.type,name:fleet.type_contract_omnium
 msgid "Omnium"
 msgstr "Нийт дүн"
-
-#. module: fleet
-#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_brand_view_kanban
-msgid "Open"
-msgstr "Нээлттэй"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_16
@@ -1532,6 +1710,13 @@ msgid "Oxygen Sensor Replacement"
 msgstr "Агаарын Урсгал Мэдрэгч Солилт"
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__plan_to_change_bike
+#: model:ir.model.fields,field_description:fleet.field_res_partner__plan_to_change_bike
+#: model:ir.model.fields,field_description:fleet.field_res_users__plan_to_change_bike
+msgid "Plan To Change Bike"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__plan_to_change_car
 #: model:ir.model.fields,field_description:fleet.field_res_partner__plan_to_change_car
 #: model:ir.model.fields,field_description:fleet.field_res_users__plan_to_change_car
@@ -1544,7 +1729,20 @@ msgid "Planned for Change"
 msgstr ""
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__plug_in_hybrid_diesel
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__plug_in_hybrid_diesel
+msgid "Plug-in Hybrid Diesel"
+msgstr ""
+
+#. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__fuel_type__plug_in_hybrid_gasoline
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_model__default_fuel_type__plug_in_hybrid_gasoline
+msgid "Plug-in Hybrid Gasoline"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__power
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__power
 msgid "Power"
 msgstr "Хүч"
 
@@ -1562,6 +1760,11 @@ msgstr "Жолооны насос солилт"
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__power
 msgid "Power in kW of the vehicle"
 msgstr "Тээврийн хэрэгслийн хүч кВт-р"
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_brand_view_kanban
+msgid "Properties"
+msgstr "Шинж чанар"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__net_car_value
@@ -1673,7 +1876,7 @@ msgstr "Хариуцагч"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__activity_user_id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__activity_user_id
 msgid "Responsible User"
-msgstr "Хариуцсан хэрэглэгч"
+msgstr "Эд хариуцагч"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_38
@@ -1697,6 +1900,7 @@ msgstr "Ажиллаж байгаа"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__seats
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__seats
 msgid "Seats Number"
 msgstr "Суудлын Тоо"
 
@@ -1711,6 +1915,7 @@ msgid "Senior"
 msgstr "Ахлах"
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_category__sequence
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_state__sequence
 msgid "Sequence"
 msgstr "Дугаарлалт"
@@ -1785,6 +1990,12 @@ msgid "Spark Plug Replacement"
 msgstr "Свечэй солих"
 
 #. module: fleet
+#: code:addons/fleet/models/fleet_vehicle.py:0
+#, python-format
+msgid "Specify the End date of %s"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__state
 msgid "Stage"
 msgstr "Үе шат"
@@ -1837,6 +2048,11 @@ msgstr ""
 "Төлөвлөгдсөн: Ирээдүйд гүйцэтгэх ажилбарууд"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vechicle_costs_report_view_tree
+msgid "Sum of Cost"
+msgstr ""
+
+#. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_5
 #: model:fleet.service.type,name:fleet.type_service_service_7
 msgid "Summer tires"
@@ -1858,6 +2074,11 @@ msgid "Tags"
 msgstr "Пайз"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
+msgid "Tax Info"
+msgstr ""
+
+#. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_3
 msgid "Tax roll"
 msgstr "Татварын хуудас"
@@ -1869,14 +2090,13 @@ msgid "Terms and Conditions"
 msgstr "Худалдааны нөхцөл, журам"
 
 #. module: fleet
-#: model_terms:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
+#: model:ir.model.fields,help:fleet.field_fleet_vehicle__country_code
 msgid ""
-"Thanks to the different filters, Odoo can only print the effective\n"
-"          costs, sort them by type and by vehicle."
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
 msgstr ""
-"Олон төрлийн шүүлтүүрийн ачаар Odoo нь зөвхөн зохистой \n"
-"зардлуудыг хэвлэх бөгөөд үүнийг төрлөөр нь, тээврийн \n"
-"хэрэгслээр нь эрэмбэлж, бүлэглэх боломжтой."
+"Улсын ISO код нь хоёр тэмдэгтэй байна.\n"
+"Та үүнийг хурдан хайлтад хэрэглэх боломжтой."
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_43
@@ -1904,11 +2124,6 @@ msgstr "Дугуй Солилт"
 #: model:fleet.service.type,name:fleet.type_service_46
 msgid "Tire Service"
 msgstr "Дугуй Засвар"
-
-#. module: fleet
-#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_log_services__state__todo
-msgid "To Do"
-msgstr "Товлогдсон"
 
 #. module: fleet
 #: model:fleet.vehicle.state,name:fleet.fleet_vehicle_state_to_order
@@ -1949,7 +2164,19 @@ msgid ""
 msgstr "Таны машин дээр хийсэн бүх үйлчилгээг хянах."
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__trailer_hook
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__trailer_hook
+msgid "Trailer Hitch"
+msgstr ""
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
+msgid "Trailer Hook"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__transmission
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__transmission
 msgid "Transmission"
 msgstr "Хурдны Хайрцаг"
 
@@ -1970,8 +2197,14 @@ msgstr "Хурдны хайрцаг солих"
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__transmission
+#: model:ir.model.fields,help:fleet.field_fleet_vehicle_model__transmission
 msgid "Transmission Used by the vehicle"
 msgstr "Тээврийн хэрэгслийн хурдны хайрцаг"
+
+#. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__frame_type__trapez
+msgid "Trapez"
+msgstr ""
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__cost_subtype_id
@@ -2054,13 +2287,25 @@ msgid "Vehicle Contract"
 msgstr ""
 
 #. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__vehicle_count
+msgid "Vehicle Count"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__description
 msgid "Vehicle Description"
 msgstr ""
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_form
 msgid "Vehicle Information"
+msgstr ""
+
+#. module: fleet
+#: model:ir.actions.act_window,name:fleet.fleet_vehicle_model_action
+#: model:ir.ui.menu,name:fleet.fleet_vehicle_model_menu
+msgid "Vehicle Models"
 msgstr ""
 
 #. module: fleet
@@ -2090,6 +2335,7 @@ msgstr "Тээврийн Хэрэгслийн Пайзууд"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__vehicle_type
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_cost_report__vehicle_type
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model__vehicle_type
 msgid "Vehicle Type"
 msgstr ""
@@ -2101,10 +2347,12 @@ msgid "Vehicle concerned by this log"
 msgstr "Энэ хөтлөлтөнд хамаарах тээврйин хэрэгсэл"
 
 #. module: fleet
+#: code:addons/fleet/models/fleet_vehicle_model.py:0
 #: model:ir.actions.act_window,name:fleet.fleet_vehicle_action
-#: model:ir.ui.menu,name:fleet.fleet_vehicle_menu
-#: model:ir.ui.menu,name:fleet.fleet_vehicles
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_form
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_tree
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_activity
+#, python-format
 msgid "Vehicles"
 msgstr "Тээврийн хэрэгсэл"
 
@@ -2113,12 +2361,6 @@ msgstr "Тээврийн хэрэгсэл"
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_search
 msgid "Vehicles Contracts"
 msgstr "Тээврийн Хэрэгслийн Гэрээ"
-
-#. module: fleet
-#: model:ir.actions.act_window,name:fleet.fleet_vehicle_model_action
-#: model:ir.ui.menu,name:fleet.fleet_vehicle_model_menu
-msgid "Vehicles Model"
-msgstr "Тээврийн загвар"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_view_search
@@ -2169,6 +2411,11 @@ msgid "Water Pump Replacement"
 msgstr "Усны Насос Солилт"
 
 #. module: fleet
+#: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__frame_type__wave
+msgid "Wave"
+msgstr "Давалгаа"
+
+#. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle_log_contract__cost_frequency__weekly
 msgid "Weekly"
 msgstr "Долоо хоног бүр"
@@ -2187,6 +2434,11 @@ msgstr "Домбон Холхивч Солилт"
 #: model:fleet.service.type,name:fleet.type_service_53
 msgid "Windshield Wiper(s) Replacement"
 msgstr "Цонх арчигч солих"
+
+#. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_brand_view_search
+msgid "With Models"
+msgstr ""
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form
@@ -2252,6 +2504,11 @@ msgid "e.g. Tesla"
 msgstr "ж.нь. Tesla"
 
 #. module: fleet
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_model_brand_view_kanban
+msgid "img"
+msgstr ""
+
+#. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__odometer_unit__kilometers
 msgid "km"
 msgstr "км"
@@ -2259,7 +2516,7 @@ msgstr "км"
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__odometer_unit__miles
 msgid "mi"
-msgstr ""
+msgstr "бээр"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form

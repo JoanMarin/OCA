@@ -4,7 +4,7 @@ from odoo.tests import common, new_test_user
 from odoo import fields
 
 
-class TestFleet(common.SavepointCase):
+class TestFleet(common.TransactionCase):
 
     def test_search_renewal(self):
         """
