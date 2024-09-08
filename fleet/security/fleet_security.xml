@@ -28,16 +28,6 @@
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="False"/>
-            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
-        </record>
-        <record id="fleet_rule_cost_visibility_user" model="ir.rule">
-            <field name="name">User can only see his/her costs</field>
-            <field name="model_id" ref="model_fleet_vehicle_cost"/>
-            <field name="groups" eval="[(4, ref('fleet_group_user'))]"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_unlink" eval="False"/>
             <field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>
         </record>
         <record id="fleet_rule_service_visibility_user" model="ir.rule">
@@ -48,7 +38,7 @@
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="False"/>
-            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
+            <field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>
         </record>
         <record id="fleet_rule_odometer_visibility_user" model="ir.rule">
             <field name="name">User can only see his/her vehicle's odometer</field>
@@ -59,16 +49,6 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_unlink" eval="True"/>
             <field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>
-        </record>
-        <record id="fleet_rule_fuel_log_visibility_user" model="ir.rule">
-            <field name="name">User can only see his/her vehicle's fuel log</field>
-            <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
-            <field name="groups" eval="[(4, ref('fleet_group_user'))]"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_unlink" eval="True"/>
-            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
         </record>
         <record id="fleet_rule_vehicle_visibility_user" model="ir.rule">
             <field name="name">User can only see his/her vehicle</field>
@@ -85,11 +65,6 @@
             <field name="model_id" ref="model_fleet_vehicle_log_contract"/>
             <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
         </record>
-        <record id="fleet_rule_cost_visibility_manager" model="ir.rule">
-            <field name="name">Administrator has all rights on vehicle's costs</field>
-            <field name="model_id" ref="model_fleet_vehicle_cost"/>
-            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
-        </record>
         <record id="fleet_rule_service_visibility_manager" model="ir.rule">
             <field name="name">Administrator has all rights on vehicle's services</field>
             <field name="model_id" ref="model_fleet_vehicle_log_services"/>
@@ -100,11 +75,6 @@
             <field name="model_id" ref="model_fleet_vehicle_odometer"/>
             <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
         </record>
-        <record id="fleet_rule_fuel_log_visibility_manager" model="ir.rule">
-            <field name="name">Administrator has all rights on vehicle's fuel log</field>
-            <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
-            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
-        </record>
         <record id="fleet_rule_vehicle_visibility_manager" model="ir.rule">
             <field name="name">Administrator has all rights on vehicle</field>
             <field name="model_id" ref="model_fleet_vehicle"/>
@@ -113,38 +83,25 @@
         <record id="ir_rule_fleet_vehicle" model="ir.rule">
             <field name="name">Fleet vehicle: Multi Company</field>
             <field name="model_id" ref="model_fleet_vehicle"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="ir_rule_fleet_log_fuel" model="ir.rule">
-            <field name="name">Fleet log fuel: Multi Company</field>
-            <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="ir_rule_fleet_log_services" model="ir.rule">
-            <field name="name">Fleet log services: Multi Company</field>
-            <field name="model_id" ref="model_fleet_vehicle_log_services"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="ir_rule_fleet_cost" model="ir.rule">
-            <field name="name">Fleet cost: Multi Company</field>
-            <field name="model_id" ref="model_fleet_vehicle_cost"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="ir_rule_fleet_log_contract" model="ir.rule">
-            <field name="name">Fleet log contract: Multi Company</field>
-            <field name="model_id" ref="model_fleet_vehicle_log_contract"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
         </record>
         <record id="ir_rule_fleet_odometer" model="ir.rule">
             <field name="name">Fleet odometer: Multi Company</field>
             <field name="model_id" ref="model_fleet_vehicle_odometer"/>
             <field name="global" eval="True"/>
-            <field name="domain_force">['|', ('vehicle_id.company_id', '=', False), ('vehicle_id.company_id', 'in', company_ids)]</field>
+            <field name="domain_force">[('vehicle_id.company_id', 'in', company_ids + [False])]</field>
+        </record>
+        <record id="ir_rule_fleet_log_services" model="ir.rule">
+            <field name="name">Fleet log services: Multi Company</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_services"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+        </record>
+        <record id="ir_rule_fleet_log_contract" model="ir.rule">
+            <field name="name">Fleet log contract: Multi Company</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_contract"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
         </record>
     </data>
 </odoo>
