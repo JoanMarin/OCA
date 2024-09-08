@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
+from collections import defaultdict
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, _
@@ -13,7 +14,7 @@ MODEL_FIELDS_TO_VEHICLE = {
     'transmission': 'transmission', 'model_year': 'model_year', 'electric_assistance': 'electric_assistance',
     'color': 'color', 'seats': 'seats', 'doors': 'doors', 'trailer_hook': 'trailer_hook',
     'default_co2': 'co2', 'co2_standard': 'co2_standard', 'default_fuel_type': 'fuel_type',
-    'power': 'power', 'horsepower': 'horsepower', 'horsepower_tax': 'horsepower_tax',
+    'power': 'power', 'horsepower': 'horsepower', 'horsepower_tax': 'horsepower_tax', 'category_id': 'category_id',
 }
 
 class FleetVehicle(models.Model):
@@ -21,13 +22,14 @@ class FleetVehicle(models.Model):
     _name = 'fleet.vehicle'
     _description = 'Vehicle'
     _order = 'license_plate asc, acquisition_date asc'
+    _rec_names_search = ['name', 'driver_id.name']
 
     def _get_default_state(self):
         state = self.env.ref('fleet.fleet_vehicle_state_registered', raise_if_not_found=False)
         return state if state and state.id else False
 
     name = fields.Char(compute="_compute_vehicle_name", store=True)
-    description = fields.Html("Vehicle Description", help="Add a note about this vehicle")
+    description = fields.Html("Vehicle Description")
     active = fields.Boolean('Active', default=True, tracking=True)
     manager_id = fields.Many2one(
         'res.users', 'Fleet Manager',
@@ -39,7 +41,7 @@ class FleetVehicle(models.Model):
     )
     currency_id = fields.Many2one('res.currency', related='company_id.currency_id')
     country_id = fields.Many2one('res.country', related='company_id.country_id')
-    country_code = fields.Char(related='country_id.code')
+    country_code = fields.Char(related='country_id.code', depends=['country_id'])
     license_plate = fields.Char(tracking=True,
         help='License plate number of the vehicle (i = plate number for a car)')
     vin_sn = fields.Char('Chassis Number', help='Unique number written on the vehicle motor (VIN/SN number)', copy=False)
@@ -47,7 +49,7 @@ class FleetVehicle(models.Model):
     driver_id = fields.Many2one('res.partner', 'Driver', tracking=True, help='Driver address of the vehicle', copy=False)
     future_driver_id = fields.Many2one('res.partner', 'Future Driver', tracking=True, help='Next Driver Address of the vehicle', copy=False, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     model_id = fields.Many2one('fleet.vehicle.model', 'Model',
-        tracking=True, required=True, help='Model of the vehicle')
+        tracking=True, required=True)
 
     brand_id = fields.Many2one('fleet.vehicle.model.brand', 'Brand', related="model_id.brand_id", store=True, readonly=False)
     log_drivers = fields.One2many('fleet.vehicle.assignation.log', 'vehicle_id', string='Assignment Logs')
@@ -58,8 +60,9 @@ class FleetVehicle(models.Model):
     odometer_count = fields.Integer(compute="_compute_count_all", string='Odometer')
     history_count = fields.Integer(compute="_compute_count_all", string="Drivers History Count")
     next_assignation_date = fields.Date('Assignment Date', help='This is the date at which the car will be available, if not set it means available instantly')
-    acquisition_date = fields.Date('Immatriculation Date', required=False,
-        default=fields.Date.today, help='Date when the vehicle has been immatriculated')
+    acquisition_date = fields.Date('Registration Date', required=False,
+        default=fields.Date.today, help='Date of vehicle registration')
+    write_off_date = fields.Date('Cancellation Date', tracking=True, help="Date when the vehicle's license plate has been cancelled/removed.")
     first_contract_date = fields.Date(string="First Contract Date", default=fields.Date.today)
     color = fields.Char(help='Color of the vehicle', compute='_compute_model_fields', store=True, readonly=False)
     state_id = fields.Many2one('fleet.vehicle.state', 'State',
@@ -76,16 +79,17 @@ class FleetVehicle(models.Model):
     odometer_unit = fields.Selection([
         ('kilometers', 'km'),
         ('miles', 'mi')
-        ], 'Odometer Unit', default='kilometers', help='Unit of the odometer ', required=True)
+        ], 'Odometer Unit', default='kilometers', required=True)
     transmission = fields.Selection(
-        [('manual', 'Manual'), ('automatic', 'Automatic')], 'Transmission', help='Transmission Used by the vehicle',
+        [('manual', 'Manual'), ('automatic', 'Automatic')], 'Transmission',
         compute='_compute_model_fields', store=True, readonly=False)
-    fuel_type = fields.Selection(FUEL_TYPES, 'Fuel Type', help='Fuel Used by the vehicle', compute='_compute_model_fields', store=True, readonly=False)
+    fuel_type = fields.Selection(FUEL_TYPES, 'Fuel Type', compute='_compute_model_fields', store=True, readonly=False)
     horsepower = fields.Integer(compute='_compute_model_fields', store=True, readonly=False)
     horsepower_tax = fields.Float('Horsepower Taxation', compute='_compute_model_fields', store=True, readonly=False)
     power = fields.Integer('Power', help='Power in kW of the vehicle', compute='_compute_model_fields', store=True, readonly=False)
-    co2 = fields.Float('CO2 Emissions', help='CO2 emissions of the vehicle', compute='_compute_model_fields', store=True, readonly=False)
+    co2 = fields.Float('CO2 Emissions', help='CO2 emissions of the vehicle', compute='_compute_model_fields', store=True, readonly=False, tracking=True)
     co2_standard = fields.Char('CO2 Standard', compute='_compute_model_fields', store=True, readonly=False)
+    category_id = fields.Many2one('fleet.vehicle.model.category', 'Category', compute='_compute_model_fields', store=True, readonly=False)
     image_128 = fields.Image(related='model_id.image_128', readonly=True)
     contract_renewal_due_soon = fields.Boolean(compute='_compute_contract_reminder', search='_search_contract_renewal_due_soon',
         string='Has Contracts to renew')
@@ -99,15 +103,26 @@ class FleetVehicle(models.Model):
          ('expired', 'Expired'),
          ('closed', 'Closed')
         ], string='Last Contract State', compute='_compute_contract_reminder', required=False)
-    car_value = fields.Float(string="Catalog Value (VAT Incl.)", help='Value of the bought vehicle')
-    net_car_value = fields.Float(string="Purchase Value", help="Purchase value of the vehicle")
+    car_value = fields.Float(string="Catalog Value (VAT Incl.)")
+    net_car_value = fields.Float(string="Purchase Value")
     residual_value = fields.Float()
     plan_to_change_car = fields.Boolean(related='driver_id.plan_to_change_car', store=True, readonly=False)
     plan_to_change_bike = fields.Boolean(related='driver_id.plan_to_change_bike', store=True, readonly=False)
     vehicle_type = fields.Selection(related='model_id.vehicle_type')
-    frame_type = fields.Selection([('diamant', 'Diamant'), ('trapez', 'Trapez'), ('wave', 'Wave')], help="Frame type of the bike")
+    frame_type = fields.Selection([('diamant', 'Diamant'), ('trapez', 'Trapez'), ('wave', 'Wave')], string="Bike Frame Type")
     electric_assistance = fields.Boolean(compute='_compute_model_fields', store=True, readonly=False)
     frame_size = fields.Float()
+    service_activity = fields.Selection([
+        ('none', 'None'),
+        ('overdue', 'Overdue'),
+        ('today', 'Today'),
+    ], compute='_compute_service_activity')
+
+    @api.depends('log_services')
+    def _compute_service_activity(self):
+        for vehicle in self:
+            activities_state = set(state for state in vehicle.log_services.mapped('activity_state') if state and state != 'planned')
+            vehicle.service_activity = sorted(activities_state)[0] if activities_state else 'none'
 
     @api.depends('model_id')
     def _compute_model_fields(self):
@@ -123,7 +138,7 @@ class FleetVehicle(models.Model):
                 write_vals = {MODEL_FIELDS_TO_VEHICLE[key]: vehicle.model_id[key] for key in MODEL_FIELDS_TO_VEHICLE\
                     if vehicle.model_id[key]}
                 model_values[vehicle.model_id.id] = write_vals
-            vehicle.write(write_vals)
+            vehicle.update(write_vals)
 
     @api.depends('model_id.brand_id.name', 'model_id.name', 'license_plate')
     def _compute_vehicle_name(self):
@@ -148,13 +163,33 @@ class FleetVehicle(models.Model):
 
     def _compute_count_all(self):
         Odometer = self.env['fleet.vehicle.odometer']
-        LogService = self.env['fleet.vehicle.log.services']
-        LogContract = self.env['fleet.vehicle.log.contract']
-        for record in self:
-            record.odometer_count = Odometer.search_count([('vehicle_id', '=', record.id)])
-            record.service_count = LogService.search_count([('vehicle_id', '=', record.id), ('active', '=', record.active)])
-            record.contract_count = LogContract.search_count([('vehicle_id', '=', record.id), ('state', '!=', 'closed'), ('active', '=', record.active)])
-            record.history_count = self.env['fleet.vehicle.assignation.log'].search_count([('vehicle_id', '=', record.id)])
+        LogService = self.env['fleet.vehicle.log.services'].with_context(active_test=False)
+        LogContract = self.env['fleet.vehicle.log.contract'].with_context(active_test=False)
+        History = self.env['fleet.vehicle.assignation.log']
+        odometers_data = Odometer.read_group([('vehicle_id', 'in', self.ids)], ['vehicle_id'], ['vehicle_id'])
+        services_data = LogService.read_group([('vehicle_id', 'in', self.ids)], ['vehicle_id', 'active'], ['vehicle_id', 'active'], lazy=False)
+        logs_data = LogContract.read_group([('vehicle_id', 'in', self.ids), ('state', '!=', 'closed')], ['vehicle_id', 'active'], ['vehicle_id', 'active'], lazy=False)
+        histories_data = History.read_group([('vehicle_id', 'in', self.ids)], ['vehicle_id'], ['vehicle_id'])
+
+        mapped_odometer_data = defaultdict(lambda: 0)
+        mapped_service_data = defaultdict(lambda: defaultdict(lambda: 0))
+        mapped_log_data = defaultdict(lambda: defaultdict(lambda: 0))
+        mapped_history_data = defaultdict(lambda: 0)
+
+        for odometer_data in odometers_data:
+            mapped_odometer_data[odometer_data['vehicle_id'][0]] = odometer_data['vehicle_id_count']
+        for service_data in services_data:
+            mapped_service_data[service_data['vehicle_id'][0]][service_data['active']] = service_data['__count']
+        for log_data in logs_data:
+            mapped_log_data[log_data['vehicle_id'][0]][log_data['active']] = log_data['__count']
+        for history_data in histories_data:
+            mapped_history_data[history_data['vehicle_id'][0]] = history_data['vehicle_id_count']
+
+        for vehicle in self:
+            vehicle.odometer_count = mapped_odometer_data[vehicle.id]
+            vehicle.service_count = mapped_service_data[vehicle.id][vehicle.active]
+            vehicle.contract_count = mapped_log_data[vehicle.id][vehicle.active]
+            vehicle.history_count = mapped_history_data[vehicle.id]
 
     @api.depends('log_contracts')
     def _compute_contract_reminder(self):
@@ -248,24 +283,25 @@ class FleetVehicle(models.Model):
             su_vals['plan_to_change_bike'] = vals.pop('plan_to_change_bike')
         return su_vals
 
-    @api.model
-    def create(self, vals):
-        ptc_value = self._clean_vals_internal_user(vals)
-        res = super(FleetVehicle, self).create(vals)
-        if ptc_value:
-            res.sudo().write(ptc_value)
-        if 'driver_id' in vals and vals['driver_id']:
-            res.create_driver_history(vals)
-        if 'future_driver_id' in vals and vals['future_driver_id']:
-            state_waiting_list = self.env.ref('fleet.fleet_vehicle_state_waiting_list', raise_if_not_found=False)
-            states = res.mapped('state_id').ids
-            if not state_waiting_list or state_waiting_list.id not in states:
-                future_driver = self.env['res.partner'].browse(vals['future_driver_id'])
-                if self.vehicle_type == 'bike':
-                    future_driver.sudo().write({'plan_to_change_bike': True})
-                if self.vehicle_type == 'car':
-                    future_driver.sudo().write({'plan_to_change_car': True})
-        return res
+    @api.model_create_multi
+    def create(self, vals_list):
+        ptc_values = [self._clean_vals_internal_user(vals) for vals in vals_list]
+        vehicles = super().create(vals_list)
+        for vehicle, vals, ptc_value in zip(vehicles, vals_list, ptc_values):
+            if ptc_value:
+                vehicle.sudo().write(ptc_value)
+            if 'driver_id' in vals and vals['driver_id']:
+                vehicle.create_driver_history(vals)
+            if 'future_driver_id' in vals and vals['future_driver_id']:
+                state_waiting_list = self.env.ref('fleet.fleet_vehicle_state_waiting_list', raise_if_not_found=False)
+                states = vehicle.mapped('state_id').ids
+                if not state_waiting_list or state_waiting_list.id not in states:
+                    future_driver = self.env['res.partner'].browse(vals['future_driver_id'])
+                    if self.vehicle_type == 'bike':
+                        future_driver.sudo().write({'plan_to_change_bike': True})
+                    if self.vehicle_type == 'car':
+                        future_driver.sudo().write({'plan_to_change_car': True})
+        return vehicles
 
     def write(self, vals):
         if 'driver_id' in vals and vals['driver_id']:
@@ -335,15 +371,6 @@ class FleetVehicle(models.Model):
         if 'co2' in fields:
             fields.remove('co2')
         return super(FleetVehicle, self).read_group(domain, fields, groupby, offset, limit, orderby, lazy)
-
-    @api.model
-    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
-        args = args or []
-        if operator == 'ilike' and not (name or '').strip():
-            domain = []
-        else:
-            domain = ['|', ('name', operator, name), ('driver_id.name', operator, name)]
-        return self._search(expression.AND([domain, args]), limit=limit, access_rights_uid=name_get_uid)
 
     def return_action_to_open(self):
         """ This opens the xml view specified in xml_id for the current vehicle """

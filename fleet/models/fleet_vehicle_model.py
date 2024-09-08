@@ -7,8 +7,7 @@ from odoo import _, api, fields, models
 FUEL_TYPES = [
     ('diesel', 'Diesel'),
     ('gasoline', 'Gasoline'),
-    ('hybrid', 'Hybrid Diesel'),
-    ('full_hybrid_gasoline', 'Hybrid Gasoline'),
+    ('full_hybrid', 'Full Hybrid'),
     ('plug_in_hybrid_diesel', 'Plug-in Hybrid Diesel'),
     ('plug_in_hybrid_gasoline', 'Plug-in Hybrid Gasoline'),
     ('cng', 'CNG'),
@@ -23,13 +22,13 @@ class FleetVehicleModel(models.Model):
     _order = 'name asc'
 
     name = fields.Char('Model name', required=True)
-    brand_id = fields.Many2one('fleet.vehicle.model.brand', 'Manufacturer', required=True, help='Manufacturer of the vehicle')
+    brand_id = fields.Many2one('fleet.vehicle.model.brand', 'Manufacturer', required=True)
     category_id = fields.Many2one('fleet.vehicle.model.category', 'Category')
     vendors = fields.Many2many('res.partner', 'fleet_vehicle_model_vendors', 'model_id', 'partner_id', string='Vendors')
     image_128 = fields.Image(related='brand_id.image_128', readonly=True)
     active = fields.Boolean(default=True)
     vehicle_type = fields.Selection([('car', 'Car'), ('bike', 'Bike')], default='car', required=True)
-    transmission = fields.Selection([('manual', 'Manual'), ('automatic', 'Automatic')], 'Transmission', help='Transmission Used by the vehicle')
+    transmission = fields.Selection([('manual', 'Manual'), ('automatic', 'Automatic')], 'Transmission')
     vehicle_count = fields.Integer(compute='_compute_vehicle_count')
     model_year = fields.Integer()
     color = fields.Char()
@@ -44,7 +43,6 @@ class FleetVehicleModel(models.Model):
     horsepower_tax = fields.Float('Horsepower Taxation')
     electric_assistance = fields.Boolean(default=False)
 
-    @api.depends('name', 'brand_id')
     def name_get(self):
         res = []
         for record in self:
