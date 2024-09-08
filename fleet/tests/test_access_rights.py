@@ -3,7 +3,7 @@
 from odoo.tests import common, new_test_user
 
 
-class TestFleet(common.SavepointCase):
+class TestFleet(common.TransactionCase):
 
     def test_manager_create_vehicle(self):
         manager = new_test_user(self.env, "test fleet manager", groups="fleet.fleet_group_manager,base.group_partner_manager")
@@ -15,8 +15,9 @@ class TestFleet(common.SavepointCase):
             "brand_id": brand.id,
             "name": "A3",
         })
-        self.env["fleet.vehicle"].with_user(manager).create({
+        car = self.env["fleet.vehicle"].with_user(manager).create({
             "model_id": model.id,
             "driver_id": user.partner_id.id,
             "plan_to_change_car": False
         })
+        car.with_user(manager).plan_to_change_car = True
