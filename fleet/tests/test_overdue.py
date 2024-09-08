@@ -4,7 +4,7 @@ from odoo.tests import common, new_test_user
 from odoo import fields
 
 
-class TestFleet(common.SavepointCase):
+class TestFleet(common.TransactionCase):
 
     def test_search_renewal(self):
         """
@@ -30,14 +30,14 @@ class TestFleet(common.SavepointCase):
             "plan_to_change_car": False
         })
         Log = self.env['fleet.vehicle.log.contract']
-        log = Log.create({
+        Log.create({
             'vehicle_id': car_2.id,
             'expiration_date': fields.Date.add(fields.Date.today(), days=10)
         })
         res = self.env["fleet.vehicle"].search([('contract_renewal_due_soon', '=', True), ('id', '=', car_2.id)])
         self.assertEqual(res, car_2)
 
-        log = Log.create({
+        Log.create({
             'vehicle_id': car_1.id,
             'expiration_date': fields.Date.add(fields.Date.today(), days=-10)
         })
