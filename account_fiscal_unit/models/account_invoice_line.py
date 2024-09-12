@@ -43,6 +43,8 @@ class AccountInvoiceLine(models.Model):
 
     @api.multi
     def _compute_tax_id(self):
+        fiscal_position_id = False
+
         for line_id in self:
             if not line_id.product_id:
                 continue
@@ -66,7 +68,13 @@ class AccountInvoiceLine(models.Model):
                     or company_id.account_purchase_tax_id
                 )
 
-            line_id.invoice_line_tax_ids = line_id.invoice_id.fiscal_position_id.map_tax(
+            if not fiscal_position_id:
+                fiscal_position_id = (
+                    line_id.invoice_id.fiscal_position_id
+                    or line_id.invoice_id.partner_id.property_account_position_id
+                )
+
+            line_id.invoice_line_tax_ids = fiscal_position_id.map_tax(
                 taxes, line_id.product_id, line_id.invoice_id.partner_id
             )
 
