@@ -46,26 +46,32 @@ class AccountInvoiceLine(models.Model):
         fiscal_position_id = False
 
         for line_id in self:
+            taxes = False
+
             if not line_id.product_id:
-                continue
+                taxes = line_id.invoice_line_tax_ids
 
             company_id = line_id.company_id or self.env.user.company_id
 
             if line_id.invoice_id.type in ("out_invoice", "out_refund"):
                 taxes = (
-                    line_id.product_id.taxes_id.filtered(
+                    taxes
+                    or line_id.product_id.taxes_id.filtered(
                         lambda r: r.company_id == company_id
                     )
-                    or line_id.account_id.tax_ids
-                    or company_id.account_sale_tax_id
+                    or line_id.account_id.tax_ids.filtered(
+                        lambda r: r.company_id == company_id
+                    )
                 )
             else:
                 taxes = (
-                    line_id.product_id.supplier_taxes_id.filtered(
+                    taxes
+                    or line_id.product_id.supplier_taxes_id.filtered(
                         lambda r: r.company_id == company_id
                     )
-                    or line_id.account_id.tax_ids
-                    or company_id.account_purchase_tax_id
+                    or line_id.account_id.tax_ids.filtered(
+                        lambda r: r.company_id == company_id
+                    )
                 )
 
             if not fiscal_position_id:
