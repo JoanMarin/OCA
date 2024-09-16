@@ -63,6 +63,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/l10n-el-salvador <https://github.com/OCA/l10n-el-salvador/tree/2.0/account_service_order>`_ project on GitHub.
+This module is part of the `OCA/l10n-el-salvador <https://github.com/OCA/l10n-el-salvador/tree/12.0/account_service_order>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

@@ -19,16 +19,25 @@ class AccountMove(models.Model):
     bl = fields.Char(string="No. BL", compute="_compute_service_order_ids")
     awb = fields.Char(string="No. AWB", compute="_compute_service_order_ids")
     cp = fields.Char(string="No. CP", compute="_compute_service_order_ids")
+    service_order_description = fields.Char(
+        string="Service Order Description", compute="_compute_service_order_ids"
+    )
 
     def _compute_service_order_ids(self):
         for move_id in self:
             service_order_ids = move_id.line_ids.mapped("service_order_id")
-            move_id.duca = ", ".join(service_order_ids.mapped("duca"))
-            move_id.dmti = ", ".join(service_order_ids.mapped("dmti"))
-            move_id.dm = ", ".join(service_order_ids.mapped("dm"))
-            move_id.sv = ", ".join(service_order_ids.mapped("sv"))
-            move_id.bl = ", ".join(service_order_ids.mapped("bl"))
-            move_id.awb = ", ".join(service_order_ids.mapped("awb"))
-            move_id.cp = ", ".join(service_order_ids.mapped("cp"))
-            move_line_ids = service_order_ids.mapped("move_line_ids")
-            move_id.service_order_line_ids = move_line_ids
+            move_id.duca = ", ".join(
+                list(filter(None, service_order_ids.mapped("duca")))
+            )
+            move_id.dmti = ", ".join(
+                list(filter(None, service_order_ids.mapped("dmti")))
+            )
+            move_id.dm = ", ".join(list(filter(None, service_order_ids.mapped("dm"))))
+            move_id.sv = ", ".join(list(filter(None, service_order_ids.mapped("sv"))))
+            move_id.bl = ", ".join(list(filter(None, service_order_ids.mapped("bl"))))
+            move_id.awb = ", ".join(list(filter(None, service_order_ids.mapped("awb"))))
+            move_id.cp = ", ".join(list(filter(None, service_order_ids.mapped("cp"))))
+            move_id.service_order_description = ", ".join(
+                list(filter(None, service_order_ids.mapped("description")))
+            )
+            move_id.service_order_line_ids = service_order_ids.mapped("move_line_ids")

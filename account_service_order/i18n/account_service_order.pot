@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 20:47+0000\n"
-"PO-Revision-Date: 2024-09-12 20:47+0000\n"
+"POT-Creation-Date: 2024-09-13 18:23+0000\n"
+"PO-Revision-Date: 2024-09-13 18:23+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -208,6 +208,11 @@ msgid "Service Order"
 msgstr ""
 
 #. module: account_service_order
+#: model:ir.model.fields,field_description:account_service_order.field_account_move__service_order_description
+msgid "Service Order Description"
+msgstr ""
+
+#. module: account_service_order
 #: model:res.groups,name:account_service_order.group_service_order_manager
 msgid "Service Order Manager"
 msgstr ""
@@ -274,16 +279,13 @@ msgstr ""
 #. module: account_service_order
 #: code:addons/account_service_order/models/account_service_order.py:171
 #, python-format
-"You can only delete the last service order at a time, contact your "
-"administrator if you have any problems."
+msgid "You can only delete the last service order at a time, contact your administrator if you have any problems."
 msgstr ""
 
 #. module: account_service_order
 #: code:addons/account_service_order/models/account_service_order.py:157
 #, python-format
-msgid ""
-"You do not have permission to edit this, contact your administrator if you "
-"have any problems."
+msgid "You do not have permission to edit this, contact your administrator if you have any problems."
 msgstr ""
 
 #. module: account_service_order
