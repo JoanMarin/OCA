@@ -4,15 +4,11 @@
         <field name="model">purchase.cost.distribution</field>
         <field name="inherit_id" ref="purchase_landed_cost.purchase_cost_distribution_form"/>
         <field name="arch" type="xml">
-            <button name="action_cancel" position="attributes">
-                <attribute name="states">done,accounted</attribute>
-            </button>
-
             <button name="action_draft" position="attributes">
-                <attribute name="states">calculated,error,cancel</attribute>
+                <attribute name="states">calculated,done,accounted</attribute>
             </button>
 
-            <button name="action_cancel" position="after">
+            <button name="action_draft" position="after">
                 <button name="action_overwrite_move_lines" states="done" string="Overwrite Journal Items"
                     type="object"/>
             </button>

@@ -117,8 +117,8 @@ class PurchaseCostDistribution(models.Model):
         return super(PurchaseCostDistribution, self).action_done()
 
     @api.multi
-    def action_cancel(self):
-        res = super(PurchaseCostDistribution, self).action_cancel()
+    def action_draft(self):
+        res = super(PurchaseCostDistribution, self).action_draft()
         self.get_value_with_landed_costs()
 
         return res
