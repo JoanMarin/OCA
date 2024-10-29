@@ -8,5 +8,5 @@ class AccountAccount(models.Model):
     _inherit = "account.account"
 
     is_service_order_account = fields.Boolean(
-        string="Is a Service Order Account?", defualt=False
+        string="Is a Service Order Account?", default=False
     )
