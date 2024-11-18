@@ -21,13 +21,9 @@ class AccountMoveLineSetServiceOrder(models.TransientModel):
             move_id = account_move_obj.browse(self.env.context.get("active_id", False))
 
             for line_id in move_id.line_ids.filtered(
-                lambda r: r.is_service_order_account
+                lambda r: r.is_service_order_account or r.display_type == "product"
             ):
-                if (
-                    line_id.has_service_order != "no"
-                    and not line_id.service_order_id
-                    and line_id.partner_id == wizard_id.service_order_id.partner_id
-                ):
+                if line_id.has_service_order != "no" and not line_id.service_order_id:
                     line_id.write(
                         {
                             "service_order_id": wizard_id.service_order_id.id,

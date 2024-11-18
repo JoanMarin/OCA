@@ -19,5 +19,5 @@ class AccountMoveLine(models.Model):
     service_order_id = fields.Many2one(
         comodel_name="account.service.order",
         string="Service Order",
-        domain="[('state', '=', 'open'), ('partner_id', '=', partner_id)]",
+        domain="[('state', '=', 'open')]",
     )

@@ -17,25 +17,35 @@
                 <field name="is_service_order_account" readonly="1" invisible="1"/>
                 <field name="has_service_order"
                     attrs="{
-                        'required':[('is_service_order_account', '=', True)],
-                        'readonly':[('is_service_order_account', '=', False)]
+                        'required': [('is_service_order_account', '=', True)],
+                        'readonly': [
+                            ('display_type', '!=', 'product'),
+                            ('is_service_order_account', '!=', True),
+                        ]
                     }"
                 />
                 <field name="service_order_id"
                     attrs="{
-                        'required':[('has_service_order', '=', 'yes')],
-                        'readonly':[('is_service_order_account', '=', False)]
+                        'required': [('has_service_order', '=', 'yes')],
+                        'readonly': [
+                            ('display_type', '!=', 'product'),
+                            ('is_service_order_account', '!=', True),
+                        ]
                     }"
-                    options='{"no_create": True}'/>
+                    options='{"no_create": True}'
+                />
             </xpath>
 
-            <xpath expr="//page[1]" position="after">
+            <xpath expr="//page[@name='other_info']" position="after">
                 <page string="Service Order">
                     <group>
                         <group>
                             <field name="duca"/>
                             <field name="dmti"/>
                             <field name="dm"/>
+                            <field name="service_order_description"/>
+                        </group>
+                        <group>
                             <field name="sv"/>
                             <field name="bl"/>
                             <field name="awb"/>

@@ -6,17 +6,24 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook/page/group[1]" position="inside">
                 <group string="Service Order">
+                    <field name="display_type" invisible="1"/>
                     <field name="is_service_order_account" readonly="1" invisible="1"/>
                     <field name="has_service_order"
                         attrs="{
-                            'required':[('is_service_order_account', '=', True)],
-                            'readonly':[('is_service_order_account', '=', False)]
+                            'required': [('is_service_order_account', '=', True)],
+                            'readonly': [
+                                ('display_type', '!=', 'product'),
+                                ('is_service_order_account', '!=', True),
+                            ]
                         }"
                     />
                     <field name="service_order_id"
                         attrs="{
-                            'required':[('has_service_order', '=', 'yes')],
-                            'readonly':[('is_service_order_account', '=', False)]
+                            'required': [('has_service_order', '=', 'yes')],
+                            'readonly': [
+                                ('display_type', '!=', 'product'),
+                                ('is_service_order_account', '!=', True),
+                            ]
                         }"
                         options='{"no_create": True}'
                     />

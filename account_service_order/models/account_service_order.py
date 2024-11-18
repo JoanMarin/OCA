@@ -131,7 +131,7 @@ class AccountServiceOrder(models.Model):
 
         return True
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
         res = super(AccountServiceOrder, self).create(vals)
         res.set_name()
