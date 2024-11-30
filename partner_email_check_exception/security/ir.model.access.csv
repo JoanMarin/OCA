@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_email_exception_user,access_res_partner_email_exception_user,model_res_partner_email_exception,base.group_user,1,0,0,0
+access_res_partner_email_exception_manager,access_res_partner_email_exception_manager,model_res_partner_email_exception,group_email_exception,1,1,1,1
