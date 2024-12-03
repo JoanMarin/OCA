@@ -81,5 +81,5 @@ msgstr "Múltiples correos electrónicos"
 #: code:addons/partner_multi_email/models/res_partner.py:7
 #, python-format
 msgid "There can only be one main email."
-msgstr "There can only be one main email."
+msgstr "Sólo puede haber un correo electrónico principal."
 
