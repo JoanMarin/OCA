@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_iframe_dashboard_user" model="ir.rule">
+        <field name="name">rule_iframe_dashboard_user</field>
+        <field name="model_id" ref="model_iframe_dashboard"/>
+        <field name="groups" eval="[(4, ref('group_iframe_dashboard_user'))]"/>
+        <field name="domain_force">['|', ('user_ids', 'in', user.id), ('user_ids', '=', False)]</field>
+    </record>
+
+    <record id="rule_iframe_dashboard_manager" model="ir.rule">
+        <field name="name">rule_iframe_dashboard_manager</field>
+        <field name="model_id" ref="model_iframe_dashboard"/>
+        <field name="groups" eval="[(4, ref('group_iframe_dashboard_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>
