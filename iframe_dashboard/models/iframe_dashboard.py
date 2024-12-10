@@ -11,7 +11,7 @@ class iFrameDashboard(models.Model):
 
     name = fields.Char(required=True)
     url = fields.Char(string="URL", required=True)
-    width = fields.Integer(string="Width(%)", sefault=100)
+    width = fields.Integer(string="Width(%)", default=100)
     height = fields.Integer(string="Height(px)", default=700)
     user_ids = fields.Many2many(
         comodel_name="res.users",
