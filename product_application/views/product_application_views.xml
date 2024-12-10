@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_application_tree" model="ir.ui.view">
+        <field name="model">product.application</field>
+        <field name="arch" type="xml">
+            <tree string="Product Applications">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_application_form" model="ir.ui.view">
+        <field name="model">product.application</field>
+        <field name="arch" type="xml">
+            <form string="Product Applications">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_application_action" model="ir.actions.act_window">
+        <field name="name">Product Applications</field>
+        <field name="res_model">product.application</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="product_application_menu" name="Product Applications" parent="sale.prod_config_main"
+        sequence="3" action="product_application_action"/>
+</odoo>

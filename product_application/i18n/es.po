@@ -1,0 +1,153 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_application
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-10 13:22+0000\n"
+"PO-Revision-Date: 2024-12-10 13:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_product__product_application_id
+#: model:ir.model.fields,field_description:product_application.field_product_template__product_application_id
+msgid "Application"
+msgstr "Aplicación"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_product__application_category_id
+#: model:ir.model.fields,field_description:product_application.field_product_template__application_category_id
+msgid "Category"
+msgstr "Categoría"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__code
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__code
+msgid "Code"
+msgstr "Código"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__create_uid
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__create_date
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__display_name
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__id
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__id
+msgid "ID"
+msgstr ""
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application____last_update
+#: model:ir.model.fields,field_description:product_application.field_product_application_category____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__write_uid
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__write_date
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application__name
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__parent_id
+msgid "Parent Category"
+msgstr "Categoría padre"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__parent_path
+msgid "Parent Path"
+msgstr "Ruta padre"
+
+#. module: product_application
+#: model:ir.module.category,name:product_application.module_product_application
+msgid "Product Application"
+msgstr "Aplicación de producto"
+
+#. module: product_application
+#: model:ir.actions.act_window,name:product_application.product_application_category_action
+#: model:ir.model,name:product_application.model_product_application_category
+#: model:ir.ui.menu,name:product_application.product_application_category_menu
+#: model_terms:ir.ui.view,arch_db:product_application.product_application_category_form
+#: model_terms:ir.ui.view,arch_db:product_application.product_application_category_tree
+msgid "Product Application Categories"
+msgstr "Categorias de aplicación de producto"
+
+#. module: product_application
+#: model:res.groups,name:product_application.group_product_application_manager
+msgid "Product Application Manager"
+msgstr "Gerente de aplicaciones de productos"
+
+#. module: product_application
+#: model:res.groups,name:product_application.group_product_application_user
+msgid "Product Application User"
+msgstr "Usuario de aplicaciones de productos"
+
+#. module: product_application
+#: model:ir.actions.act_window,name:product_application.product_application_action
+#: model:ir.model,name:product_application.model_product_application
+#: model:ir.ui.menu,name:product_application.product_application_menu
+#: model_terms:ir.ui.view,arch_db:product_application.product_application_form
+#: model_terms:ir.ui.view,arch_db:product_application.product_application_tree
+msgid "Product Applications"
+msgstr "Aplicaciones del producto"
+
+#. module: product_application
+#: model:ir.model,name:product_application.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_product__application_segment_id
+#: model:ir.model.fields,field_description:product_application.field_product_template__application_segment_id
+msgid "Segment"
+msgstr "Segmento"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_application_category__child_ids
+msgid "Subcategories"
+msgstr "Subcategorías"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_product__application_subcategory_id
+#: model:ir.model.fields,field_description:product_application.field_product_template__application_subcategory_id
+msgid "Subcategory"
+msgstr "Subcategoría"
+
+#. module: product_application
+#: code:addons/product_application/models/product_template.py:0
+#, python-format
+msgid "You can not modify applications or product categories."
+msgstr "No puedes modificar aplicaciones ni categorías de productos."
