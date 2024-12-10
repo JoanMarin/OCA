@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_product_application_user" model="res.groups">
+        <field name="name">Product Application User</field>
+        <field name="category_id" ref="module_product_application"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+
+    <record id="group_product_application_manager" model="res.groups">
+        <field name="name">Product Application Manager</field>
+        <field name="category_id" ref="module_product_application"/>
+        <field name="implied_ids" eval="[(4, ref('group_product_application_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+</odoo>
