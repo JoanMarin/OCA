@@ -1,0 +1,32 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_equivalent_application
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-11 21:57+0000\n"
+"PO-Revision-Date: 2024-12-11 21:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_equivalent_application
+#: model:ir.model.fields,field_description:product_equivalent_application.field_product_equivalent__application_category_id
+msgid "Category"
+msgstr ""
+
+#. module: product_equivalent_application
+#: model:ir.model,name:product_equivalent_application.model_product_equivalent
+msgid "Equivalent Products"
+msgstr ""
+
+#. module: product_equivalent_application
+#: model:ir.model.fields,field_description:product_equivalent_application.field_product_equivalent__application_subcategory_id
+msgid "Subcategory"
+msgstr ""
+
