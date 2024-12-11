@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="product_equivalent_tree" model="ir.ui.view">
+		<field name="model">product.equivalent</field>
+		<field name="arch" type="xml">
+			<tree string="Equivalent Products">
+				<field name="sku"/>
+				<field name="manufacturer_pref"/>
+				<field name="print_to_pdf"/>
+				<field name="brand_id"/>
+				<field name="manufacturer_id"/>
+				<field name="manufacturer_pname"/>
+				<field name="product_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="product_equivalent_form" model="ir.ui.view">
+		<field name="model">product.equivalent</field>
+		<field name="arch" type="xml">
+			<form string="Equivalent Products">
+				<group>
+					<group>
+						<field name="sku"/>
+						<field name="manufacturer_pref"/>
+						<field name="print_to_pdf"/>
+						<field name="brand_id" options='{"no_open": True, "no_create": True}'/>
+						<field name="manufacturer_id" options='{"no_open": True, "no_create": True}'/>
+						<field name="manufacturer_pname"/>
+					</group>
+					<group>
+						<field name="product_id" options='{"no_create": True}'/>
+						<field name="classification_id"/>
+					</group>
+				</group>
+				<group>
+					<field name="product_template_ids">
+						<tree>
+							<field name="sku"/>
+							<field name="default_code"/>
+							<field name="product_brand_id"/>
+							<field name="manufacturer"/>
+							<field name="name"/>
+						</tree>
+					</field>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record id="product_equivalent_search" model="ir.ui.view">
+		<field name="name">product.equivalent.search</field>
+		<field name="model">product.equivalent</field>
+		<field name="arch" type="xml">
+			<search string="Equivalent Products">
+				<field name="sku"/>
+				<field name="manufacturer_pref"/>
+				<field name="brand_id"/>
+				<field name="manufacturer_id"/>
+				<field name="product_template_ids"/>
+			</search>
+		</field>
+	</record>
+
+	<record id="product_equivalent_action" model="ir.actions.act_window">
+		<field name="name">Equivalent Products</field>
+		<field name="res_model">product.equivalent</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem name="Equivalent Products" id="product_equivalent_menu"
+		action="product_equivalent_action" parent="sale.prod_config_main"/>
+</odoo>

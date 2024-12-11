@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="product_equivalent_classification_tree" model="ir.ui.view">
+		<field name="name">product.equivalent.classification.tree</field>
+		<field name="model">product.equivalent.classification</field>
+		<field name="arch" type="xml">
+			<tree string="Classification of Equivalent Products">
+				<field name="code"/>
+				<field name="name"/>
+				<field name="subsystem_id"/>
+				<field name="subsystem_name"/>
+				<field name="system_id"/>
+				<field name="system_name"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="product_equivalent_classification_form" model="ir.ui.view">
+		<field name="name">product.equivalent.classification.form</field>
+		<field name="model">product.equivalent.classification</field>
+		<field name="arch" type="xml">
+			<form string="Classification of Equivalent Products">
+				<group>
+					<group>
+						<field name="code"/>
+						<field name="name"/>
+					</group>
+					<group>
+						<field name="subsystem_id"/>
+						<field name="subsystem_name"/>
+						<field name="system_id"/>
+						<field name="system_name"/>
+					</group>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record id="product_equivalent_classification_search" model="ir.ui.view">
+		<field name="name">product.equivalent.classification.search</field>
+		<field name="model">product.equivalent.classification</field>
+		<field name="arch" type="xml">
+			<search string="Classification of Equivalent Products">
+				<field name="name" string="Classification of Equivalent Products"
+					filter_domain="['|', ('code', '=', self), ('name', '=', self)]"/>
+			</search>
+		</field>
+	</record>
+
+	<record id="product_equivalent_classification_action" model="ir.actions.act_window">
+		<field name="name">Classification of Equivalent Products</field>
+		<field name="res_model">product.equivalent.classification</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem name="Classification of Equivalent Products"
+		id="product_equivalent_classification_menu"
+		action="product_equivalent_classification_action" parent="sale.prod_config_main"/>
+</odoo>

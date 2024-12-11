@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="product_normal_form_view" model="ir.ui.view">
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_normal_form_view"/>
+		<field name="arch" type="xml">
+			<field name="default_code" position="before">
+				<field name="sku"/>
+			</field>
+
+			<xpath expr="//notebook" position="inside">
+				<page string="Equivalent Products">
+					<field name="product_equivalent_ids">
+						<tree>
+							<field name="sku"/>
+							<field name="manufacturer_pref"/>
+							<field name="print_to_pdf"/>
+							<field name="brand_id"/>
+							<field name="manufacturer_id"/>
+							<field name="manufacturer_pname"/>
+							<field name="product_id"/>
+						</tree>
+					</field>
+				</page>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="product_variant_easy_edit_view" model="ir.ui.view">
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+		<field name="arch" type="xml">
+			<field name="default_code" position="before">
+				<field name="sku"/>
+			</field>
+		</field>
+	</record>
+
+	<record id="product_product_tree_view" model="ir.ui.view">
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_product_tree_view"/>
+		<field name="arch" type="xml">
+			<field name="attribute_value_ids" position="before">
+				<field name="manufacturer"/>
+			</field>
+		</field>
+	</record>
+</odoo>
