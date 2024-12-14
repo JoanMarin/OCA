@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="commercial_name"/>
+                <field name="commercial_name" placeholder="Commercial Name"/>
             </field>
         </field>
     </record>

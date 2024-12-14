@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_product_variant_tree_brand" model="ir.ui.view">
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product_brand.view_product_variant_tree_brand"/>
+		<field name="arch" type="xml">
+			<field name="product_brand_id" position="after">
+				<field name="manufacturer_id"/>
+			</field>
+		</field>
+	</record>
+</odoo>

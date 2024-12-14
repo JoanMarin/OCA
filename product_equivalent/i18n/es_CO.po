@@ -1,0 +1,209 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_equivalent
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-14 04:00+0000\n"
+"PO-Revision-Date: 2024-12-14 04:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__brand_id
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__brand_id
+msgid "Brand"
+msgstr "Marca"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__classification_id
+msgid "Classification of Equivalent Product"
+msgstr "Clasificación del Producto Equivalente"
+
+#. module: product_equivalent
+#: model:ir.actions.act_window,name:product_equivalent.product_equivalent_classification_action
+#: model:ir.model,name:product_equivalent.model_product_equivalent_classification
+#: model:ir.ui.menu,name:product_equivalent.product_equivalent_classification_menu
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_equivalent_classification_form
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_equivalent_classification_search
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_equivalent_classification_tree
+msgid "Classification of Equivalent Products"
+msgstr "Clasificación de Productos Equivalentes"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__code
+msgid "Code"
+msgstr "Código"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__create_uid
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__create_date
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__display_name
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__display_name
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_equivalent
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_template_search_view
+msgid "Equivalent Product Reference"
+msgstr "Referencia del Producto Equivalente"
+
+#. module: product_equivalent
+#: model:ir.actions.act_window,name:product_equivalent.product_equivalent_action
+#: model:ir.model,name:product_equivalent.model_product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_product__product_equivalent_ids
+#: model:ir.model.fields,field_description:product_equivalent.field_product_template__product_equivalent_ids
+#: model:ir.ui.menu,name:product_equivalent.product_equivalent_menu
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_equivalent_form
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_equivalent_search
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_equivalent_tree
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_template_only_form_view
+msgid "Equivalent Products"
+msgstr "Productos Equivalentes"
+
+#. module: product_equivalent
+#: model:ir.model,name:product_equivalent.model_product_equivalent_report
+msgid "Equivalent Products Report"
+msgstr "Reporte Productos Equivalentes"
+
+#. module: product_equivalent
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_template_search_view
+msgid "Exact Equivalent Product Reference"
+msgstr "Referencia Exacta del Producto Equivalente"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__id
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__id
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__id
+msgid "ID"
+msgstr ""
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent____last_update
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification____last_update
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__write_uid
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__write_date
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__manufacturer_pref
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__manufacturer_pref
+msgid "Manuf. Product Code"
+msgstr "Código de producto del fabricante"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__manufacturer_pname
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__manufacturer_pname
+msgid "Manuf. Product Name"
+msgstr "Nombre de producto del fabricante"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__manufacturer_id
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__manufacturer_id
+msgid "Manufacturer"
+msgstr "Fabricante"
+
+#. module: product_equivalent
+#: model_terms:ir.ui.view,arch_db:product_equivalent.product_template_search_view
+msgid "Manufacturer of Equivalent Product"
+msgstr "Fabricante del Producto Equivalente"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__parent_product_id
+msgid "Parent Product"
+msgstr "Producto Padre"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__parent_product_template_id
+msgid "Parent Product Template"
+msgstr "Plantilla de Producto Padre"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__print_to_pdf
+msgid "Print to PDF?"
+msgstr "¿Imprimir en PDF?"
+
+#. module: product_equivalent
+#: model:ir.model,name:product_equivalent.model_product_template
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__product_id
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__product_template_id
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__product_template_id
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_equivalent
+#: model:ir.model,name:product_equivalent.model_product_product
+msgid "Product Variant"
+msgstr "Variante de producto"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__sku
+#: model:ir.model.fields,field_description:product_equivalent.field_product_product__sku
+#: model:ir.model.fields,field_description:product_equivalent.field_product_template__sku
+msgid "Reference EXA"
+msgstr "Referencia EXA"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__product_template_ids
+msgid "Related Products"
+msgstr "Productos Relacionados"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__subsystem_id
+msgid "Subsystem ID"
+msgstr "ID del Subsistema"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__subsystem_name
+msgid "Subsystem Name"
+msgstr "Nombre del Subsistema"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__system_id
+msgid "System ID"
+msgstr "ID del Sistema"
+
+#. module: product_equivalent
+#: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_classification__system_name
+msgid "System Name"
+msgstr "Nombre del Sistema"

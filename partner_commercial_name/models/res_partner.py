@@ -8,9 +8,7 @@ from odoo import models, fields, api
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    commercial_name = fields.Char(
-        string="Commercial Name", placeholder="Commercial Name"
-    )
+    commercial_name = fields.Char(string="Commercial Name")
 
     def name_get(self):
         res = []
