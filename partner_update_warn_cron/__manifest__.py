@@ -12,6 +12,8 @@
     "website": "https://github.com/OCA/credit-control",
     "depends": [
         "account",
+        "sale",
+        "stock",
     ],
     "data": [
         "data/ir_cron_data.xml",

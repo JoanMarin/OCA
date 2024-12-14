@@ -31,10 +31,16 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. module: partner_update_warn_cron
-#: code:addons/partner_update_warn_cron/models/res_partner.py:40
+#: code:addons/partner_update_warn_cron/models/res_partner.py:16
 #, python-format
 msgid "Customer has overdue invoices"
 msgstr "El cliente tiene facturas vencidas"
+
+#. module: partner_update_warn_cron
+#: model:ir.model.fields,field_description:partner_update_warn_cron.field_res_partner__not_warn_update_by_cron
+#: model:ir.model.fields,field_description:partner_update_warn_cron.field_res_users__not_warn_update_by_cron
+msgid "Do not Update Warning by Cron?"
+msgstr "¿No actualizar advertencia por cron?"
 
 #. module: partner_update_warn_cron
 #: model:ir.model.fields,field_description:partner_update_warn_cron.field_res_company__overdue_days
@@ -49,10 +55,4 @@ msgstr "Días vencidos"
 #: model_terms:ir.ui.view,arch_db:partner_update_warn_cron.res_config_settings_view_form
 msgid "Update Customer Warnings"
 msgstr "Actualizar advertencias de clientes"
-
-#. module: partner_update_warn_cron
-#: model:ir.model.fields,field_description:partner_update_warn_cron.field_res_partner__warn_updated_by_cron
-#: model:ir.model.fields,field_description:partner_update_warn_cron.field_res_users__warn_updated_by_cron
-msgid "Warning Updated By Cron?"
-msgstr "¿Advertencia actualizada por Cron?"
 

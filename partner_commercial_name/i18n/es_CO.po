@@ -18,6 +18,7 @@ msgstr ""
 #. module: partner_commercial_name
 #: model:ir.model.fields,field_description:partner_commercial_name.field_res_partner__commercial_name
 #: model:ir.model.fields,field_description:partner_commercial_name.field_res_users__commercial_name
+#: model_terms:ir.ui.view,arch_db:partner_commercial_name.view_partner_form
 msgid "Commercial Name"
 msgstr "Nombre comercial"
 
