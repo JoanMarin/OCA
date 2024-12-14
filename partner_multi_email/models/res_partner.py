@@ -53,17 +53,15 @@ class ResPartner(models.Model):
         rec = super(ResPartner, self).create(vals)
 
         for partner_id in rec:
-            main_emails = []
-
-            for email_id in partner_id.email_ids:
-                if email_id.is_main:
-                    main_emails.append(email_id.name)
+            main_emails = [
+                email_id.name for email_id in partner_id.email_ids if email_id.is_main
+            ]
 
             if len(main_emails) > 1:
                 raise ValidationError(MSG)
             elif len(main_emails) == 1 and partner_id.email != main_emails[0]:
                 partner_id.email = main_emails[0]
-            elif len(main_emails) == 0 and len(partner_id.email_ids) > 0:
+            elif len(main_emails) == 0 and partner_id.email_ids:
                 partner_id.email_ids[0].is_main = True
                 partner_id.email = partner_id.email_ids[0].name
 
