@@ -13,14 +13,14 @@ class ResPartner(models.Model):
         if self._should_filter_duplicates():
             for rec in self.filtered("email"):
                 email_exception_obj = self.env["res.partner.email.exception"]
-                email_exception_ids = email_exception_obj.search([]).mapped("name")
+                email_exceptions = email_exception_obj.search([]).mapped("name")
 
                 if self.search_count(
                     [
                         ("email", "=", rec.email),
                         ("id", "!=", rec.id),
                         ("email", "!=", False),
-                        ("email", "!=", email_exception_ids),
+                        ("email", "not in", email_exceptions),
                     ]
                 ):
                     raise UserError(

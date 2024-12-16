@@ -17,6 +17,7 @@ class ResPartner(models.Model):
     @api.model
     def name_search(self, name, args=None, operator="ilike", limit=100):
         res = super(ResPartner, self).name_search(name, args, operator, limit)
+
         if name:
             args = [
                 "|",
@@ -31,6 +32,9 @@ class ResPartner(models.Model):
     @api.multi
     def write(self, vals):
         res = super(ResPartner, self).write(vals)
+
+        if not vals.get("email_ids"):
+            return res
 
         for partner_id in self:
             main_emails = []
@@ -52,6 +56,9 @@ class ResPartner(models.Model):
     @api.model
     def create(self, vals):
         rec = super(ResPartner, self).create(vals)
+
+        if not vals.get("email_ids"):
+            return rec
 
         for partner_id in rec:
             main_emails = [
