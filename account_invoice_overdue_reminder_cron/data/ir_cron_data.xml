@@ -11,4 +11,16 @@
         <field name="numbercall">-1</field>
         <field name="user_id" ref="base.user_root"/>
     </record>
+
+    <record id="ir_cron_res_partner_overdue_reminder" model="ir.cron">
+        <field name="name">Send Overdue Invoice Reminders</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_overdue_reminder()</field>
+        <field name="active" eval="False"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="user_id" ref="base.user_root"/>
+    </record>
 </odoo>

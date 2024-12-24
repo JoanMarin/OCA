@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='internal_notes']/field[@name='comment']" position="after">
                 <group>
-                    <field name="not_warn_update_by_cron"/>
+                    <field name="no_update_warn_by_cron"/>
                 </group>
             </xpath>
         </field>

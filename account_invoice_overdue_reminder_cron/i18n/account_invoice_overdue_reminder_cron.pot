@@ -1,0 +1,64 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_invoice_overdue_reminder_cron
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-23 19:21+0000\n"
+"PO-Revision-Date: 2024-12-23 19:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_invoice_overdue_reminder_cron
+#: model:ir.model,name:account_invoice_overdue_reminder_cron.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: account_invoice_overdue_reminder_cron
+#: model:ir.model,name:account_invoice_overdue_reminder_cron.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: account_invoice_overdue_reminder_cron
+#: code:addons/account_invoice_overdue_reminder_cron/models/res_partner.py:16
+#, python-format
+msgid "Customer has overdue invoices"
+msgstr ""
+
+#. module: account_invoice_overdue_reminder_cron
+#: model:ir.model.fields,field_description:account_invoice_overdue_reminder_cron.field_res_partner__no_update_warn_by_cron
+#: model:ir.model.fields,field_description:account_invoice_overdue_reminder_cron.field_res_users__no_update_warn_by_cron
+msgid "Don't update warnings by Cron?"
+msgstr ""
+
+#. module: account_invoice_overdue_reminder_cron
+#: model:ir.actions.server,name:account_invoice_overdue_reminder_cron.ir_cron_res_partner_overdue_reminder_ir_actions_server
+#: model:ir.cron,cron_name:account_invoice_overdue_reminder_cron.ir_cron_res_partner_overdue_reminder
+#: model:ir.cron,name:account_invoice_overdue_reminder_cron.ir_cron_res_partner_overdue_reminder
+msgid "Send Overdue Invoice Reminders"
+msgstr ""
+
+#. module: account_invoice_overdue_reminder_cron
+#: model:ir.actions.server,name:account_invoice_overdue_reminder_cron.ir_cron_res_partner_update_warn_ir_actions_server
+#: model:ir.cron,cron_name:account_invoice_overdue_reminder_cron.ir_cron_res_partner_update_warn
+#: model:ir.cron,name:account_invoice_overdue_reminder_cron.ir_cron_res_partner_update_warn
+msgid "Update Customer Warnings"
+msgstr ""
+
+#. module: account_invoice_overdue_reminder_cron
+#: code:addons/account_invoice_overdue_reminder_cron/models/res_company.py:12
+#, python-format
+msgid "Validate All"
+msgstr ""
+
+#. module: account_invoice_overdue_reminder_cron
+#: model:ir.model,name:account_invoice_overdue_reminder_cron.model_overdue_reminder_start
+msgid "Wizard to reminder overdue customer invoice"
+msgstr ""
+
